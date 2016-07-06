@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Topic Modeling the Daily Princetonian</title>
+  <meta name="description" content="One of my favorite ways to waste time is reading internet comments. You can observe all kinds of angry people there and wonder at their pathologies. While I ...">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://delimited0.github.io/prince,/topic-models/2016/07/04/Daily-Prince-Actm.html">
+  <link rel="alternate" type="application/rss+xml" title="Patrick Ding" href="http://delimited0.github.io/feed.xml">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Patrick Ding</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+        
+          
+          <a class="page-link" href="/">Patrick Ding</a>
+          
+        
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Topic Modeling the Daily Princetonian</h1>
+    <p class="post-meta"><time datetime="2016-07-04T00:00:00-04:00" itemprop="datePublished">Jul 4, 2016</time></p>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>One of my favorite ways to waste time is reading internet comments. You can observe all kinds of angry people there and wonder at their pathologies. While I was still in school I particularly enjoyed reading the comments section of the Daily Princetonian because of its relevance to me. Though I only worked for a brief time formatting the print edition of the paper, I got to know some of the journalists, opinion writers, and editors through that work and through classes. Writing for a college newspaper requires a thick skin; the commenters are almost always out to get you.</p>
+
+<p>At some point I decided I would try to learn something about internet news and comments, perhaps so I could convince myself all those hours were not wasted. A basic question we can ask about news and comments is what are the paper and readers talking about? This kind of question, of what topics underly a corpus, is what probabilistic topic modeling can help answer. A frequently used method for topic modeling is latent Dirichlet allocation <a href="#Blei:2003">(Blei, Ng, &amp; Jordan, 2003)</a>. There have been many extensions to this original model, including some that focus on internet posts and their comments. In this post I describe a model introduced in <a href="#Yano:2009">(Yano, Cohen, &amp; Smith, 2009)</a> and apply it to a corpus of Daily Princetonian articles and their comments.</p>
+
+<h1 id="data">Data</h1>
+
+<p>I focus in particular on the opinion pieces and letters of the Daily Princetonian from fall 2013 to spring 2015–opinion pieces because in my experience these columns tend to attract the most, and the most rabid, comments, and that timespan because the Prince migrated its content to Wordpress in spring 2013 and all comments from before then have been lost. Using <code class="highlighter-rouge">beautifulsoup</code> and <code class="highlighter-rouge">Selenium</code> I scraped 962 articles from the opinion section with a total of 3576 comments. Using the <code class="highlighter-rouge">tm</code> package in <code class="highlighter-rouge">R</code> I removed capitalization, whitespace, numbers, and punctuation, stemmed the words using the Porter stemmer <a href="#Porter:1980">(Porter, 1980)</a>, and converted the documents to the <a href="https://en.wikipedia.org/wiki/Bag-of-words_model">bag of words</a> representation required by Latent Dirichlet allocation.</p>
+
+<h1 id="model">Model</h1>
+
+<p><a href="#Yano:2009">(Yano, Cohen, &amp; Smith, 2009)</a> describe this model as LinkLDA. I do not use the other model they propose, CommentLDA, because it depends on commenter identity. The Disqus commenting system that the Prince uses allows guest commenters who can use anything as their usernames; thus it’s not possible to identify guests, who posted about 40% of the comments I consider here.</p>
+
+<p>The hierarchical representation of the model is:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{align*}
+	\theta_d &\vert \alpha \sim Dir(\alpha) \\
+	z_{dn} &\vert \theta_d \sim Mult(\theta_d) \\
+	\beta_k &\vert \eta \sim Dir(\eta) \\
+	w_{dn} &\vert z_{dn}, \beta \sim Mult(\beta_{z_{dn}}) \\\
+	z'_{dcn} &\vert \theta_d \sim Mult(\theta_d) \\
+	\beta'_k &\vert \eta' \sim Dir(\eta') \\
+	w'_{dcn} &\vert z'_{dcn}, \beta' \sim Mult(\beta'_{z'_{dcn}})
+\end{align*} %]]></script>
+
+<p>And in plate notation:</p>
+
+<p><img src="/assets/2016-07-04-Daily-Prince-Actm/actm-gm.jpg" alt="Model in plate notation" /></p>
+
+<p>I implemented the model with <code class="highlighter-rouge">Rcpp</code>.</p>
+
+<h1 id="article-and-comment-topics">Article and Comment Topics</h1>
+
+<p>Jekyll also offers powerful support for code snippets:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
+<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
+
+<p>Check out the <a href="http://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>
+
+<ol class="bibliography"><li><span id="Porter:1980">Porter, M. F. (1980). An algorithm for suffix stripping. <i>Program</i>, <i>14</i>(3), 130–137. Retrieved from http://dblp.uni-trier.de/db/journals/program/program14.html#Porter80</span></li>
+<li><span id="Blei:2003">Blei, D. M., Ng, A. Y., &amp; Jordan, M. I. (2003). Latent Dirichlet Allocation. <i>J. Mach. Learn. Res.</i>, <i>3</i>, 993–1022. Retrieved from http://dl.acm.org/citation.cfm?id=944919.944937</span></li>
+<li><span id="Yano:2009">Yano, T., Cohen, W. W., &amp; Smith, N. A. (2009). Predicting Response to Political Blog Posts with Topic Models. In <i>Proceedings of Human Language Technologies: The 2009 Annual Conference of the North American Chapter of the Association for Computational Linguistics</i> (pp. 477–485). Stroudsburg, PA, USA: Association for Computational Linguistics. Retrieved from http://dl.acm.org/citation.cfm?id=1620754.1620824</span></li></ol>
+
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Patrick Ding</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Patrick Ding</li>
+          <li><a href="mailto:patrickding00@gmail.com">patrickding00@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/delimited0"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">delimited0</span></a>
+
+          </li>
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Patrick Ding's website. A blog with my projects and information about me.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
