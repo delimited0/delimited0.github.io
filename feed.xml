@@ -6,8 +6,8 @@
 </description>
     <link>http://delimited0.github.io/</link>
     <atom:link href="http://delimited0.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 05 Jul 2016 23:17:14 -0400</pubDate>
-    <lastBuildDate>Tue, 05 Jul 2016 23:17:14 -0400</lastBuildDate>
+    <pubDate>Fri, 08 Jul 2016 00:01:29 -0400</pubDate>
+    <lastBuildDate>Fri, 08 Jul 2016 00:01:29 -0400</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -41,23 +41,299 @@
 
 &lt;p&gt;&lt;img src=&quot;/assets/2016-07-04-Daily-Prince-Actm/actm-gm.jpg&quot; alt=&quot;Model in plate notation&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;I implemented the model with &lt;code class=&quot;highlighter-rouge&quot;&gt;Rcpp&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;I implemented a collapsed Gibbs sampler for the model with &lt;code class=&quot;highlighter-rouge&quot;&gt;Rcpp&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h1 id=&quot;article-and-comment-topics&quot;&gt;Article and Comment Topics&lt;/h1&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+&lt;p&gt;At first I was going to choose the number of topics K in some disciplined way, like evaluating based on held out &lt;a href=&quot;https://en.wikipedia.org/wiki/Perplexity&quot;&gt;perplexity&lt;/a&gt;, but that requires various approximations and I got lazy. So I just settled on 40 topics. I ran 2000 iterations of the Gibbs sampler. I used the term score metric described in &lt;a href=&quot;#Blei:2009&quot;&gt;(Blei &amp;amp; Lafferty, 2009)&lt;/a&gt; to determine an order for topic visualization. What follows are 10 topics I found coherent and interesting. I list the words that are among the 20 highest by term score in both the article and comment versions of the topic to give a sense of topic identity. I also take the difference between article and comment term scores and list the words with the greatest difference to convey which words are most likely to appear in articles rather than in comments for the same topic. Likewise I use the difference between comment and article scores to illustrate which words are most likely to appear for comments rather than articles. I have labeled each topic myself, based on my own judgment.&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Tom&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &#39;Hi, Tom&#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;div class=&quot;panel-group&quot; id=&quot;accordion&quot; role=&quot;tablist&quot; aria-multiselectable=&quot;true&quot;&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;
+  &lt;div class=&quot;panel panel-default&quot;&gt;
+    &lt;div class=&quot;panel-heading&quot; role=&quot;tab&quot; id=&quot;headingOne&quot;&gt;
+      &lt;h4 class=&quot;panel-title&quot;&gt;
+        &lt;a role=&quot;button&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion&quot; href=&quot;#collapseOne&quot; aria-expanded=&quot;true&quot; aria-controls=&quot;collapseOne&quot;&gt;
+          Israel-Palestine
+        &lt;/a&gt;
+      &lt;/h4&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;collapseOne&quot; class=&quot;panel-collapse collapse&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;headingOne&quot;&gt;
+      &lt;div class=&quot;panel-body&quot;&gt;
+      	&lt;table class=&quot;topictable&quot;&gt; 
+      		&lt;tr&gt;
+      			&lt;td&gt;Both&lt;/td&gt;
+      			&lt;td&gt;israel, palestinian, jew, isra, jewish, peac, gaza, call&lt;/td&gt;
+      		&lt;/tr&gt;
+      		&lt;tr&gt;
+      			&lt;td&gt;Article&lt;/td&gt;
+      			&lt;td&gt;divest, hillel, cjl, jewish, referendum, conflict, must, action, professor, compani, letter, petit, empha, faculti, support, gaza, profit, quo, two, falk&lt;/td&gt;
+      		&lt;/tr&gt;
+      		&lt;tr&gt;
+      			&lt;td&gt;Comment&lt;/td&gt;
+      			&lt;td&gt;jew, arab, right, land, israel, world, kill, muslim, will, polici, bds, egypt, ethnic, govern, human, offer, open, clean, war, state&lt;/td&gt;
+      		&lt;/tr&gt;
+      	&lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;panel panel-default&quot;&gt;
+    &lt;div class=&quot;panel-heading&quot; role=&quot;tab&quot; id=&quot;headingTwo&quot;&gt;
+      &lt;h4 class=&quot;panel-title&quot;&gt;
+        &lt;a role=&quot;button&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion&quot; href=&quot;#collapseTwo&quot; aria-expanded=&quot;true&quot; aria-controls=&quot;collapseTwo&quot;&gt;
+          Eating Clubs
+        &lt;/a&gt;
+      &lt;/h4&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;collapseTwo&quot; class=&quot;panel-collapse collapse&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;headingTwo&quot;&gt;
+      &lt;div class=&quot;panel-body&quot;&gt;
+      	&lt;table class=&quot;topictable&quot;&gt; 
+      		&lt;tr&gt;
+      			&lt;td&gt;Both&lt;/td&gt;
+      			&lt;td&gt;club, bicker, eat, member, system, friend, join, hose, social, cultur, independ, altern&lt;/td&gt;
+      		&lt;/tr&gt;
+      		&lt;tr&gt;
+      			&lt;td&gt;Article&lt;/td&gt;
+      			&lt;td&gt;referendum, vote, conver, eat, institut, process, prospect, altern, social, particip, sophomor, bicker, arbitrari, space, better, decid, end, major, measur, facilit&lt;/td&gt;
+      		&lt;/tr&gt;
+      		&lt;tr&gt;
+      			&lt;td&gt;Comment&lt;/td&gt;
+      			&lt;td&gt;peopl, offer, princ, experi, sign, best, discuss, opinion, open, shame, affili, board, exclus, club, comment, late, aid, fix, guarant, hang&lt;/td&gt;
+      		&lt;/tr&gt;
+      	&lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;panel panel-default&quot;&gt;
+    &lt;div class=&quot;panel-heading&quot; role=&quot;tab&quot; id=&quot;headingThree&quot;&gt;
+      &lt;h4 class=&quot;panel-title&quot;&gt;
+        &lt;a role=&quot;button&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion&quot; href=&quot;#collapseThree&quot; aria-expanded=&quot;true&quot; aria-controls=&quot;collapseThree&quot;&gt;
+          Sexism
+        &lt;/a&gt;
+      &lt;/h4&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;collapseThree&quot; class=&quot;panel-collapse collapse&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;headingThree&quot;&gt;
+      &lt;div class=&quot;panel-body&quot;&gt;
+      	&lt;table class=&quot;topictable&quot;&gt; 
+      		&lt;tr&gt;
+      			&lt;td&gt;Both&lt;/td&gt;
+      			&lt;td&gt;sexism, joke, catcal, sexist, microaggress&lt;/td&gt;
+      		&lt;/tr&gt;
+      		&lt;tr&gt;
+      			&lt;td&gt;Article&lt;/td&gt;
+      			&lt;td&gt;site, relationship, websit, can, reflect, woman, photo, user, facebook, internet, simpli, consum, exampl, favorit, christian, categori, frequent, isnt, shirt, microaggress&lt;/td&gt;
+      		&lt;/tr&gt;
+      		&lt;tr&gt;
+      			&lt;td&gt;Comment&lt;/td&gt;
+      			&lt;td&gt;survey, cultur, offen, frank, taken, blatant, form, class, perpetu, uncomfort, term, trend, sexism, feel, harass, humor, impress, patriarchi, scale, bossi &lt;/td&gt;
+      		&lt;/tr&gt;
+      	&lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;panel panel-default&quot;&gt;
+    &lt;div class=&quot;panel-heading&quot; role=&quot;tab&quot; id=&quot;heading4&quot;&gt;
+      &lt;h4 class=&quot;panel-title&quot;&gt;
+        &lt;a role=&quot;button&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion&quot; href=&quot;#collapse4&quot; aria-expanded=&quot;true&quot; aria-controls=&quot;collapse4&quot;&gt;
+          Race
+        &lt;/a&gt;
+      &lt;/h4&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;collapse4&quot; class=&quot;panel-collapse collapse&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;heading4&quot;&gt;
+      &lt;div class=&quot;panel-body&quot;&gt;
+      	&lt;table class=&quot;topictable&quot;&gt; 
+      		&lt;tr&gt;
+      			&lt;td&gt;Both&lt;/td&gt;
+      			&lt;td&gt;white, american, black, asian, privileg, race, minor, group, diver, racial, african&lt;/td&gt;
+      		&lt;/tr&gt;
+      		&lt;tr&gt;
+      			&lt;td&gt;Article&lt;/td&gt;
+      			&lt;td&gt;experi, diver, american, percent, show, cultur, south, ident, role, defin, grow, asian, countri, person, fresh, famili, communiti, grant, identifi, recognit&lt;/td&gt;
+      		&lt;/tr&gt;
+      		&lt;tr&gt;
+      			&lt;td&gt;Comment&lt;/td&gt;
+      			&lt;td&gt;admiss, white, privileg, check, like, male, fortgang, kid, newbi, phrase, look, poor, seek, bodi, racist, base, econom, nativ, conver, legaci&lt;/td&gt;
+      		&lt;/tr&gt;
+      	&lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;panel panel-default&quot;&gt;
+    &lt;div class=&quot;panel-heading&quot; role=&quot;tab&quot; id=&quot;heading5&quot;&gt;
+      &lt;h4 class=&quot;panel-title&quot;&gt;
+        &lt;a role=&quot;button&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion&quot; href=&quot;#collapse5&quot; aria-expanded=&quot;true&quot; aria-controls=&quot;collapse5&quot;&gt;
+          Criminal Justice
+        &lt;/a&gt;
+      &lt;/h4&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;collapse5&quot; class=&quot;panel-collapse collapse&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;heading5&quot;&gt;
+      &lt;div class=&quot;panel-body&quot;&gt;
+      	&lt;table class=&quot;topictable&quot;&gt; 
+      		&lt;tr&gt;
+      			&lt;td&gt;Both&lt;/td&gt;
+      			&lt;td&gt;drug, applic, system, justic, question, convict, admiss, punish, prison, marijuana&lt;/td&gt;
+      		&lt;/tr&gt;
+      		&lt;tr&gt;
+      			&lt;td&gt;Article&lt;/td&gt;
+      			&lt;td&gt;past, admiss, access, candid, alcohol, violat, person, point, legal, privileg, ask, equal, inequ, level, standard, effect, result, scrutini, process, higher&lt;/td&gt;
+      		&lt;/tr&gt;
+      		&lt;tr&gt;
+      			&lt;td&gt;Comment&lt;/td&gt;
+      			&lt;td&gt;princeton, reject, serv, crimin, offic, univ, drug, racial, stop, disadvantag, thousand, discriminatori, arrest, discrimin, sentenc, start, alreadi, freedom, non, sell&lt;/td&gt;
+      		&lt;/tr&gt;
+      	&lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;panel panel-default&quot;&gt;
+    &lt;div class=&quot;panel-heading&quot; role=&quot;tab&quot; id=&quot;heading6&quot;&gt;
+      &lt;h4 class=&quot;panel-title&quot;&gt;
+        &lt;a role=&quot;button&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion&quot; href=&quot;#collapse6&quot; aria-expanded=&quot;true&quot; aria-controls=&quot;collapse6&quot;&gt;
+          The Prince Itself
+        &lt;/a&gt;
+      &lt;/h4&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;collapse6&quot; class=&quot;panel-collapse collapse&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;heading6&quot;&gt;
+      &lt;div class=&quot;panel-body&quot;&gt;
+      	&lt;table class=&quot;topictable&quot;&gt; 
+      		&lt;tr&gt;
+      			&lt;td&gt;Both&lt;/td&gt;
+      			&lt;td&gt;princ, report, articl, news, paper, publish, opinion, write, stori, newspap, comment, journalist, editor&lt;/td&gt;
+      		&lt;/tr&gt;
+      		&lt;tr&gt;
+      			&lt;td&gt;Article&lt;/td&gt;
+      			&lt;td&gt;inform, onlin, media, want, reader, public, communiti, sourc, stori, comment, section, communic, content, role, copi, editor, read, edit, tradit, writer&lt;/td&gt;
+      		&lt;/tr&gt;
+      		&lt;tr&gt;
+      			&lt;td&gt;Comment&lt;/td&gt;
+      			&lt;td&gt;princ, name, student, piec, report, marcelo, critic, issu, email, insult, serious, dailyprincetoniancom, facebook, hatr, construct, independ, york, alleg, appear, deci&lt;/td&gt;
+      		&lt;/tr&gt;
+      	&lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;panel panel-default&quot;&gt;
+    &lt;div class=&quot;panel-heading&quot; role=&quot;tab&quot; id=&quot;heading7&quot;&gt;
+      &lt;h4 class=&quot;panel-title&quot;&gt;
+        &lt;a role=&quot;button&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion&quot; href=&quot;#collapse7&quot; aria-expanded=&quot;true&quot; aria-controls=&quot;collapse7&quot;&gt;
+          Mental Health
+        &lt;/a&gt;
+      &lt;/h4&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;collapse7&quot; class=&quot;panel-collapse collapse&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;heading7&quot;&gt;
+      &lt;div class=&quot;panel-body&quot;&gt;
+      	&lt;table class=&quot;topictable&quot;&gt; 
+      		&lt;tr&gt;
+      			&lt;td&gt;Both&lt;/td&gt;
+      			&lt;td&gt;student, health, mental, cps, help, campus&lt;/td&gt;
+      		&lt;/tr&gt;
+      		&lt;tr&gt;
+      			&lt;td&gt;Article&lt;/td&gt;
+      			&lt;td&gt;suffer, stress, disea, freshmen, work, servic, percent, health, project, eat, psycholog, balanc, incom, disord, director, habit, serious, mental, dean, campus&lt;/td&gt;
+      		&lt;/tr&gt;
+      		&lt;tr&gt;
+      			&lt;td&gt;Comment&lt;/td&gt;
+      			&lt;td&gt;princeton, univ, issu, administr, cps, come, forc, polici, provid, fear, suicid, time, best, need, communic, sign, student, lie, requir, share&lt;/td&gt;
+      		&lt;/tr&gt;
+      	&lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;panel panel-default&quot;&gt;
+    &lt;div class=&quot;panel-heading&quot; role=&quot;tab&quot; id=&quot;heading8&quot;&gt;
+      &lt;h4 class=&quot;panel-title&quot;&gt;
+        &lt;a role=&quot;button&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion&quot; href=&quot;#collapse8&quot; aria-expanded=&quot;true&quot; aria-controls=&quot;collapse8&quot;&gt;
+          Sexual Assault
+        &lt;/a&gt;
+      &lt;/h4&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;collapse8&quot; class=&quot;panel-collapse collapse&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;heading8&quot;&gt;
+      &lt;div class=&quot;panel-body&quot;&gt;
+      	&lt;table class=&quot;topictable&quot;&gt; 
+      		&lt;tr&gt;
+      			&lt;td&gt;Both&lt;/td&gt;
+      			&lt;td&gt;rape, sexual, assault, victim, sex, consent, campus, case&lt;/td&gt;
+      		&lt;/tr&gt;
+      		&lt;tr&gt;
+      			&lt;td&gt;Article&lt;/td&gt;
+      			&lt;td&gt;sexual, violenc, polic, happen, perhap, show, affirm, must, stone, roll, harass, assault, justic, state, vanderbilt, investig, excus, violat, drink, feder&lt;/td&gt;
+      		&lt;/tr&gt;
+      		&lt;tr&gt;
+      			&lt;td&gt;Comment&lt;/td&gt;
+      			&lt;td&gt;rape, women, men, fal, woman, evid, parti, accus, man, protect, forc, polici, feminist, drunk, sex, consequ, emot, innoc, behavior, charg&lt;/td&gt;
+      		&lt;/tr&gt;
+      	&lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;panel panel-default&quot;&gt;
+    &lt;div class=&quot;panel-heading&quot; role=&quot;tab&quot; id=&quot;heading9&quot;&gt;
+      &lt;h4 class=&quot;panel-title&quot;&gt;
+        &lt;a role=&quot;button&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion&quot; href=&quot;#collapse9&quot; aria-expanded=&quot;true&quot; aria-controls=&quot;collapse9&quot;&gt;
+          STEM vs Humanities
+        &lt;/a&gt;
+      &lt;/h4&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;collapse9&quot; class=&quot;panel-collapse collapse&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;heading9&quot;&gt;
+      &lt;div class=&quot;panel-body&quot;&gt;
+      	&lt;table class=&quot;topictable&quot;&gt; 
+      		&lt;tr&gt;
+      			&lt;td&gt;Both&lt;/td&gt;
+      			&lt;td&gt;major, human, art, studi, valu, histori, field, scienc&lt;/td&gt;
+      		&lt;/tr&gt;
+      		&lt;tr&gt;
+      			&lt;td&gt;Article&lt;/td&gt;
+      			&lt;td&gt;fact, art, scienc, applic, concentr, explor, liber, scientif, scientist, safe, histori, engin, alumni, career, director, industri, note, warn, taught, technolog&lt;/td&gt;
+      		&lt;/tr&gt;
+      		&lt;tr&gt;
+      			&lt;td&gt;Comment&lt;/td&gt;
+      			&lt;td&gt;use, physic, fair, stem, easi, lower, moment, major, pursu, complet, materi, choo, frosh, ongo, valu, author, integr, relax, subject, yeah&lt;/td&gt;
+      		&lt;/tr&gt;
+      	&lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;panel panel-default&quot;&gt;
+    &lt;div class=&quot;panel-heading&quot; role=&quot;tab&quot; id=&quot;heading10&quot;&gt;
+      &lt;h4 class=&quot;panel-title&quot;&gt;
+        &lt;a role=&quot;button&quot; data-toggle=&quot;collapse&quot; data-parent=&quot;#accordion&quot; href=&quot;#collapse10&quot; aria-expanded=&quot;true&quot; aria-controls=&quot;collapse10&quot;&gt;
+          Gender/Sexuality
+        &lt;/a&gt;
+      &lt;/h4&gt;
+    &lt;/div&gt;
+    &lt;div id=&quot;collapse10&quot; class=&quot;panel-collapse collapse&quot; role=&quot;tabpanel&quot; aria-labelledby=&quot;heading10&quot;&gt;
+      &lt;div class=&quot;panel-body&quot;&gt;
+      	&lt;table class=&quot;topictable&quot;&gt; 
+      		&lt;tr&gt;
+      			&lt;td&gt;Both&lt;/td&gt;
+      			&lt;td&gt;parent, marriag, children, sex, gay, mother&lt;/td&gt;
+      		&lt;/tr&gt;
+      		&lt;tr&gt;
+      			&lt;td&gt;Article&lt;/td&gt;
+      			&lt;td&gt;self, piec, dunham, hookup, train, admir, studi, tiger, relationship, live, capac, econom, age, critic, sex, correl, humor, success, good, increa&lt;/td&gt;
+      		&lt;/tr&gt;
+      		&lt;tr&gt;
+      			&lt;td&gt;Comment&lt;/td&gt;
+      			&lt;td&gt;coupl, rai, kid, children, biolog, father, will, adopt, orphan, dad, civil, straight, mom, perman, commit, femal, govern, non, deni, logic&lt;/td&gt;
+      		&lt;/tr&gt;
+      	&lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 
 &lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;Porter:1980&quot;&gt;Porter, M. F. (1980). An algorithm for suffix stripping. &lt;i&gt;Program&lt;/i&gt;, &lt;i&gt;14&lt;/i&gt;(3), 130–137. Retrieved from http://dblp.uni-trier.de/db/journals/program/program14.html#Porter80&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;Blei:2003&quot;&gt;Blei, D. M., Ng, A. Y., &amp;amp; Jordan, M. I. (2003). Latent Dirichlet Allocation. &lt;i&gt;J. Mach. Learn. Res.&lt;/i&gt;, &lt;i&gt;3&lt;/i&gt;, 993–1022. Retrieved from http://dl.acm.org/citation.cfm?id=944919.944937&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;Yano:2009&quot;&gt;Yano, T., Cohen, W. W., &amp;amp; Smith, N. A. (2009). Predicting Response to Political Blog Posts with Topic Models. In &lt;i&gt;Proceedings of Human Language Technologies: The 2009 Annual Conference of the North American Chapter of the Association for Computational Linguistics&lt;/i&gt; (pp. 477–485). Stroudsburg, PA, USA: Association for Computational Linguistics. Retrieved from http://dl.acm.org/citation.cfm?id=1620754.1620824&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;li&gt;&lt;span id=&quot;Yano:2009&quot;&gt;Yano, T., Cohen, W. W., &amp;amp; Smith, N. A. (2009). Predicting Response to Political Blog Posts with Topic Models. In &lt;i&gt;Proceedings of Human Language Technologies: The 2009 Annual Conference of the North American Chapter of the Association for Computational Linguistics&lt;/i&gt; (pp. 477–485). Stroudsburg, PA, USA: Association for Computational Linguistics. Retrieved from http://dl.acm.org/citation.cfm?id=1620754.1620824&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;Blei:2009&quot;&gt;Blei, D. M., &amp;amp; Lafferty, J. D. (2009). Topic Models.&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
 
 </description>
         <pubDate>Mon, 04 Jul 2016 00:00:00 -0400</pubDate>
