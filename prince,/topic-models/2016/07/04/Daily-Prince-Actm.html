@@ -78,30 +78,32 @@
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>One of my favorite ways to waste time is reading internet comments. You can observe all kinds of angry people there and wonder at their pathologies. While I was still in school I particularly enjoyed reading the comments section of the Daily Princetonian because of its relevance to me. Though I only worked for a brief time formatting the print edition of the paper, I got to know some of the journalists, opinion writers, and editors through that work and through classes. Writing for a college newspaper requires a thick skin; the commenters are almost always out to get you.</p>
+    <p>One of my favorite ways to waste time is reading internet comments. You can observe all kinds of angry people there and wonder at their pathologies. While I was still in school I particularly enjoyed reading the comments section of the <em>Daily Princetonian</em> because of its relevance to me. Though I only worked for a brief time formatting the print edition of the paper, I got to know some of the journalists, opinion writers, and editors through that work and through classes. Writing for a college newspaper requires a thick skin; the commenters are almost always out to get you.</p>
 
 <p>At some point I decided I would try to learn something about internet news and comments, perhaps so I could convince myself all those hours were not wasted. A basic question we can ask about news and comments is what are the paper and readers talking about? This kind of question, of what topics underly a corpus, is what probabilistic topic modeling can help answer. A frequently used method for topic modeling is latent Dirichlet allocation <a href="#Blei:2003">(Blei, Ng, &amp; Jordan, 2003)</a>. There have been many extensions to this original model, including some that focus on internet posts and their comments. In this post I describe a model introduced in <a href="#Yano:2009">(Yano, Cohen, &amp; Smith, 2009)</a> and apply it to a corpus of Daily Princetonian articles and their comments.</p>
 
 <h1 id="data">Data</h1>
 
-<p>I focus in particular on the opinion pieces and letters of the Daily Princetonian from fall 2013 to spring 2015–opinion pieces because in my experience these columns tend to attract the most, and the most rabid, comments, and that timespan because the Prince migrated its content to Wordpress in spring 2013 and all comments from before then have been lost. Using <code class="highlighter-rouge">beautifulsoup</code> and <code class="highlighter-rouge">Selenium</code> I scraped 962 articles from the opinion section with a total of 3576 comments. Using the <code class="highlighter-rouge">tm</code> package in <code class="highlighter-rouge">R</code> I removed capitalization, whitespace, numbers, and punctuation, stemmed the words using the Porter stemmer <a href="#Porter:1980">(Porter, 1980)</a>, and converted the documents to the <a href="https://en.wikipedia.org/wiki/Bag-of-words_model">bag of words</a> representation required by Latent Dirichlet allocation.</p>
+<p>I focus in particular on the opinion pieces and letters of the <em>Daily Princetonian</em> from fall 2013 to spring 2015–opinion pieces because in my experience these columns tend to attract the most, and the most rabid, comments, and that timespan because the <em>Prince</em> migrated its content to Wordpress in spring 2013 and all comments from before then have been lost. Using <code class="highlighter-rouge">beautifulsoup</code> and <code class="highlighter-rouge">Selenium</code> I scraped 962 articles from the opinion section with a total of 3576 comments. Using the <code class="highlighter-rouge">tm</code> package in <code class="highlighter-rouge">R</code> I removed capitalization, whitespace, numbers, and punctuation, stemmed the words using the Porter stemmer <a href="#Porter:1980">(Porter, 1980)</a>, and converted the documents to the <a href="https://en.wikipedia.org/wiki/Bag-of-words_model">bag of words</a> representation required by Latent Dirichlet allocation. The data used in this analysis, as well the code for the model, is available at my repo <a href="https://github.com/delimited0/comment_type_topic_model">comment_type_topic_model</a>.</p>
 
 <h1 id="model">Model</h1>
 
 <p><a href="#Yano:2009">(Yano, Cohen, &amp; Smith, 2009)</a> describe this model as LinkLDA. I do not use the other model they propose, CommentLDA, because it depends on commenter identity. The Disqus commenting system that the Prince uses allows guest commenters who can use anything as their usernames; thus it’s not possible to identify guests, who posted about 40% of the comments I consider here.</p>
 
-<p>The hierarchical representation of the model is:</p>
+<p>The generative process of the model is:</p>
 
 <script type="math/tex; mode=display">% <![CDATA[
 \begin{align*}
-	\theta_d &\vert \alpha \sim Dir(\alpha) \\
-	z_{dn} &\vert \theta_d \sim Mult(\theta_d) \\
-	\beta_k &\vert \eta \sim Dir(\eta) \\
-	w_{dn} &\vert z_{dn}, \beta \sim Mult(\beta_{z_{dn}}) \\\
-	z'_{dcn} &\vert \theta_d \sim Mult(\theta_d) \\
-	\beta'_k &\vert \eta' \sim Dir(\eta') \\
-	w'_{dcn} &\vert z'_{dcn}, \beta' \sim Mult(\beta'_{z'_{dcn}})
+	\theta_d &\vert \alpha \sim Dirichlet(\alpha) \\
+	z_{dn} &\vert \theta_d \sim Multinomial(\theta_d) \\
+	\beta_k &\vert \eta \sim Dirichlet(\eta) \\
+	w_{dn} &\vert z_{dn}, \beta \sim Multinomial(\beta_{z_{dn}}) \\\
+	z'_{dcn} &\vert \theta_d \sim Multinomial(\theta_d) \\
+	\beta'_k &\vert \eta' \sim Dirichlet(\eta') \\
+	w'_{dcn} &\vert z'_{dcn}, \beta' \sim Multinomial(\beta'_{z'_{dcn}})
 \end{align*} %]]></script>
+
+<p>where <script type="math/tex">w_{dn}</script> is the <script type="math/tex">n</script>th observed word in article <script type="math/tex">d</script>, <script type="math/tex">z_{dn}</script> is the latent topic assignment of <script type="math/tex">w_{dn}</script>, <script type="math/tex">\theta_d</script> is the topic proportion parameter of article <script type="math/tex">D</script>, <script type="math/tex">w'_{dcn}</script> is the <script type="math/tex">n</script>th observed word in comment <script type="math/tex">c</script> in article <script type="math/tex">d</script>, <script type="math/tex">z'_{dcn}</script> is the latent topic assignment of <script type="math/tex">w'_{dcn}</script>, <script type="math/tex">\beta_k</script> is the article distribution over words of topic <script type="math/tex">k</script>, <script type="math/tex">\beta'_k</script> is the comment distribution over words of topic <script type="math/tex">k</script>, and <script type="math/tex">\eta</script>, <script type="math/tex">\eta'</script>, and <script type="math/tex">\alpha</script> are the Dirichlet prior parameters for <script type="math/tex">\beta_k</script>, <script type="math/tex">\beta'_k</script>, and <script type="math/tex">\theta_d</script>, respectively.</p>
 
 <p>And in plate notation:</p>
 
@@ -395,6 +397,10 @@
     </div>
   </div>
 </div>
+
+<p>The differences between the article and comment distributions for each topic are interesting but cryptic if you don’t read the <em>Prince</em>. I have read the <em>Prince</em> and can offer some insight. In the Israel-Palestine topic for instance, the articles are more likely to discuss events or initiatives related to the conflict, like referenda on whether to divest from Israeli companies. Meanwhile in the comments people focus on identities and emphasize conflict, usually by accusing Israel of being an oppressive apartheid state and accusing Muslims of being hateful killers who want to destroy Israel. In the sexual assault topic, the opinion writers usually decry rape culture, while in the comments people warn against false accusations of rape and blame the victim for being drunk or just regretting poor decisions. Generally the opinion writers are students and relatively liberal in outlook, while many commenters are not even students and often reactionary.</p>
+
+<h1 id="references">References</h1>
 
 <ol class="bibliography"><li><span id="Porter:1980">Porter, M. F. (1980). An algorithm for suffix stripping. <i>Program</i>, <i>14</i>(3), 130–137. Retrieved from http://dblp.uni-trier.de/db/journals/program/program14.html#Porter80</span></li>
 <li><span id="Blei:2003">Blei, D. M., Ng, A. Y., &amp; Jordan, M. I. (2003). Latent Dirichlet Allocation. <i>J. Mach. Learn. Res.</i>, <i>3</i>, 993–1022. Retrieved from http://dl.acm.org/citation.cfm?id=944919.944937</span></li>

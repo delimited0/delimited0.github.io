@@ -6,36 +6,38 @@
 </description>
     <link>http://delimited0.github.io/</link>
     <atom:link href="http://delimited0.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 08 Jul 2016 00:01:29 -0400</pubDate>
-    <lastBuildDate>Fri, 08 Jul 2016 00:01:29 -0400</lastBuildDate>
+    <pubDate>Sat, 09 Jul 2016 11:43:17 -0400</pubDate>
+    <lastBuildDate>Sat, 09 Jul 2016 11:43:17 -0400</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
         <title>Topic Modeling the Daily Princetonian</title>
-        <description>&lt;p&gt;One of my favorite ways to waste time is reading internet comments. You can observe all kinds of angry people there and wonder at their pathologies. While I was still in school I particularly enjoyed reading the comments section of the Daily Princetonian because of its relevance to me. Though I only worked for a brief time formatting the print edition of the paper, I got to know some of the journalists, opinion writers, and editors through that work and through classes. Writing for a college newspaper requires a thick skin; the commenters are almost always out to get you.&lt;/p&gt;
+        <description>&lt;p&gt;One of my favorite ways to waste time is reading internet comments. You can observe all kinds of angry people there and wonder at their pathologies. While I was still in school I particularly enjoyed reading the comments section of the &lt;em&gt;Daily Princetonian&lt;/em&gt; because of its relevance to me. Though I only worked for a brief time formatting the print edition of the paper, I got to know some of the journalists, opinion writers, and editors through that work and through classes. Writing for a college newspaper requires a thick skin; the commenters are almost always out to get you.&lt;/p&gt;
 
 &lt;p&gt;At some point I decided I would try to learn something about internet news and comments, perhaps so I could convince myself all those hours were not wasted. A basic question we can ask about news and comments is what are the paper and readers talking about? This kind of question, of what topics underly a corpus, is what probabilistic topic modeling can help answer. A frequently used method for topic modeling is latent Dirichlet allocation &lt;a href=&quot;#Blei:2003&quot;&gt;(Blei, Ng, &amp;amp; Jordan, 2003)&lt;/a&gt;. There have been many extensions to this original model, including some that focus on internet posts and their comments. In this post I describe a model introduced in &lt;a href=&quot;#Yano:2009&quot;&gt;(Yano, Cohen, &amp;amp; Smith, 2009)&lt;/a&gt; and apply it to a corpus of Daily Princetonian articles and their comments.&lt;/p&gt;
 
 &lt;h1 id=&quot;data&quot;&gt;Data&lt;/h1&gt;
 
-&lt;p&gt;I focus in particular on the opinion pieces and letters of the Daily Princetonian from fall 2013 to spring 2015–opinion pieces because in my experience these columns tend to attract the most, and the most rabid, comments, and that timespan because the Prince migrated its content to Wordpress in spring 2013 and all comments from before then have been lost. Using &lt;code class=&quot;highlighter-rouge&quot;&gt;beautifulsoup&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;Selenium&lt;/code&gt; I scraped 962 articles from the opinion section with a total of 3576 comments. Using the &lt;code class=&quot;highlighter-rouge&quot;&gt;tm&lt;/code&gt; package in &lt;code class=&quot;highlighter-rouge&quot;&gt;R&lt;/code&gt; I removed capitalization, whitespace, numbers, and punctuation, stemmed the words using the Porter stemmer &lt;a href=&quot;#Porter:1980&quot;&gt;(Porter, 1980)&lt;/a&gt;, and converted the documents to the &lt;a href=&quot;https://en.wikipedia.org/wiki/Bag-of-words_model&quot;&gt;bag of words&lt;/a&gt; representation required by Latent Dirichlet allocation.&lt;/p&gt;
+&lt;p&gt;I focus in particular on the opinion pieces and letters of the &lt;em&gt;Daily Princetonian&lt;/em&gt; from fall 2013 to spring 2015–opinion pieces because in my experience these columns tend to attract the most, and the most rabid, comments, and that timespan because the &lt;em&gt;Prince&lt;/em&gt; migrated its content to Wordpress in spring 2013 and all comments from before then have been lost. Using &lt;code class=&quot;highlighter-rouge&quot;&gt;beautifulsoup&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;Selenium&lt;/code&gt; I scraped 962 articles from the opinion section with a total of 3576 comments. Using the &lt;code class=&quot;highlighter-rouge&quot;&gt;tm&lt;/code&gt; package in &lt;code class=&quot;highlighter-rouge&quot;&gt;R&lt;/code&gt; I removed capitalization, whitespace, numbers, and punctuation, stemmed the words using the Porter stemmer &lt;a href=&quot;#Porter:1980&quot;&gt;(Porter, 1980)&lt;/a&gt;, and converted the documents to the &lt;a href=&quot;https://en.wikipedia.org/wiki/Bag-of-words_model&quot;&gt;bag of words&lt;/a&gt; representation required by Latent Dirichlet allocation. The data used in this analysis, as well the code for the model, is available at my repo &lt;a href=&quot;https://github.com/delimited0/comment_type_topic_model&quot;&gt;comment_type_topic_model&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h1 id=&quot;model&quot;&gt;Model&lt;/h1&gt;
 
 &lt;p&gt;&lt;a href=&quot;#Yano:2009&quot;&gt;(Yano, Cohen, &amp;amp; Smith, 2009)&lt;/a&gt; describe this model as LinkLDA. I do not use the other model they propose, CommentLDA, because it depends on commenter identity. The Disqus commenting system that the Prince uses allows guest commenters who can use anything as their usernames; thus it’s not possible to identify guests, who posted about 40% of the comments I consider here.&lt;/p&gt;
 
-&lt;p&gt;The hierarchical representation of the model is:&lt;/p&gt;
+&lt;p&gt;The generative process of the model is:&lt;/p&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
 \begin{align*}
-	\theta_d &amp;\vert \alpha \sim Dir(\alpha) \\
-	z_{dn} &amp;\vert \theta_d \sim Mult(\theta_d) \\
-	\beta_k &amp;\vert \eta \sim Dir(\eta) \\
-	w_{dn} &amp;\vert z_{dn}, \beta \sim Mult(\beta_{z_{dn}}) \\\
-	z&#39;_{dcn} &amp;\vert \theta_d \sim Mult(\theta_d) \\
-	\beta&#39;_k &amp;\vert \eta&#39; \sim Dir(\eta&#39;) \\
-	w&#39;_{dcn} &amp;\vert z&#39;_{dcn}, \beta&#39; \sim Mult(\beta&#39;_{z&#39;_{dcn}})
+	\theta_d &amp;\vert \alpha \sim Dirichlet(\alpha) \\
+	z_{dn} &amp;\vert \theta_d \sim Multinomial(\theta_d) \\
+	\beta_k &amp;\vert \eta \sim Dirichlet(\eta) \\
+	w_{dn} &amp;\vert z_{dn}, \beta \sim Multinomial(\beta_{z_{dn}}) \\\
+	z&#39;_{dcn} &amp;\vert \theta_d \sim Multinomial(\theta_d) \\
+	\beta&#39;_k &amp;\vert \eta&#39; \sim Dirichlet(\eta&#39;) \\
+	w&#39;_{dcn} &amp;\vert z&#39;_{dcn}, \beta&#39; \sim Multinomial(\beta&#39;_{z&#39;_{dcn}})
 \end{align*} %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;where &lt;script type=&quot;math/tex&quot;&gt;w_{dn}&lt;/script&gt; is the &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt;th observed word in article &lt;script type=&quot;math/tex&quot;&gt;d&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;z_{dn}&lt;/script&gt; is the latent topic assignment of &lt;script type=&quot;math/tex&quot;&gt;w_{dn}&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;\theta_d&lt;/script&gt; is the topic proportion parameter of article &lt;script type=&quot;math/tex&quot;&gt;D&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;w&#39;_{dcn}&lt;/script&gt; is the &lt;script type=&quot;math/tex&quot;&gt;n&lt;/script&gt;th observed word in comment &lt;script type=&quot;math/tex&quot;&gt;c&lt;/script&gt; in article &lt;script type=&quot;math/tex&quot;&gt;d&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;z&#39;_{dcn}&lt;/script&gt; is the latent topic assignment of &lt;script type=&quot;math/tex&quot;&gt;w&#39;_{dcn}&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;\beta_k&lt;/script&gt; is the article distribution over words of topic &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;\beta&#39;_k&lt;/script&gt; is the comment distribution over words of topic &lt;script type=&quot;math/tex&quot;&gt;k&lt;/script&gt;, and &lt;script type=&quot;math/tex&quot;&gt;\eta&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;\eta&#39;&lt;/script&gt;, and &lt;script type=&quot;math/tex&quot;&gt;\alpha&lt;/script&gt; are the Dirichlet prior parameters for &lt;script type=&quot;math/tex&quot;&gt;\beta_k&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;\beta&#39;_k&lt;/script&gt;, and &lt;script type=&quot;math/tex&quot;&gt;\theta_d&lt;/script&gt;, respectively.&lt;/p&gt;
 
 &lt;p&gt;And in plate notation:&lt;/p&gt;
 
@@ -329,6 +331,10 @@
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
+
+&lt;p&gt;The differences between the article and comment distributions for each topic are interesting but cryptic if you don’t read the &lt;em&gt;Prince&lt;/em&gt;. I have read the &lt;em&gt;Prince&lt;/em&gt; and can offer some insight. In the Israel-Palestine topic for instance, the articles are more likely to discuss events or initiatives related to the conflict, like referenda on whether to divest from Israeli companies. Meanwhile in the comments people focus on identities and emphasize conflict, usually by accusing Israel of being an oppressive apartheid state and accusing Muslims of being hateful killers who want to destroy Israel. In the sexual assault topic, the opinion writers usually decry rape culture, while in the comments people warn against false accusations of rape and blame the victim for being drunk or just regretting poor decisions. Generally the opinion writers are students and relatively liberal in outlook, while many commenters are not even students and often reactionary.&lt;/p&gt;
+
+&lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
 
 &lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;Porter:1980&quot;&gt;Porter, M. F. (1980). An algorithm for suffix stripping. &lt;i&gt;Program&lt;/i&gt;, &lt;i&gt;14&lt;/i&gt;(3), 130–137. Retrieved from http://dblp.uni-trier.de/db/journals/program/program14.html#Porter80&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;Blei:2003&quot;&gt;Blei, D. M., Ng, A. Y., &amp;amp; Jordan, M. I. (2003). Latent Dirichlet Allocation. &lt;i&gt;J. Mach. Learn. Res.&lt;/i&gt;, &lt;i&gt;3&lt;/i&gt;, 993–1022. Retrieved from http://dl.acm.org/citation.cfm?id=944919.944937&lt;/span&gt;&lt;/li&gt;
