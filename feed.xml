@@ -6,9 +6,41 @@
 </description>
     <link>http://delimited0.github.io/</link>
     <atom:link href="http://delimited0.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 31 Jul 2016 22:39:00 -0400</pubDate>
-    <lastBuildDate>Sun, 31 Jul 2016 22:39:00 -0400</lastBuildDate>
+    <pubDate>Sun, 14 Aug 2016 23:45:41 -0400</pubDate>
+    <lastBuildDate>Sun, 14 Aug 2016 23:45:41 -0400</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>New York Philharmonic Conductors</title>
+        <description>&lt;p&gt;In January the New York Philharmonic &lt;a href=&quot;http://www.nytimes.com/2016/01/28/arts/music/new-york-philharmonic-taps-jaap-van-zweden-as-its-next-maestro.html?action=click&amp;amp;contentCollection=Music&amp;amp;module=RelatedCoverage&amp;amp;region=Marginalia&amp;amp;pgtype=article&quot;&gt;appointed&lt;/a&gt; Jaap van Zweden as its next music director. According to the various news and magazine articles about the announcement, van Zweden seems to be more inclined toward Beethoven, Brahms, and other classical music meat-and-potatoes composers compared to his current director Alan Gilbert.&lt;/p&gt;
+
+&lt;p&gt;What does the data say? Some months ago the New York Philharmonic posted its historical performance data to &lt;a href=&quot;https://github.com/nyphilarchive/PerformanceHistory&quot;&gt;Github&lt;/a&gt;. van Zweden hasn’t had that many performances with the New York phil yet, so unfortunately the archive won’t have much to say about his repertoire choices. We can use it though to get a sense of the artistic choices of the many conductors of the orchestra through its long history and see which composers’ pieces they tended to perform.&lt;/p&gt;
+
+&lt;p&gt;I wrote a &lt;code class=&quot;highlighter-rouge&quot;&gt;Shiny&lt;/code&gt; app that allows you to see the top N composers performed by each conductor with the New York Philharmonic, availble &lt;a href=&quot;https://patrickding.shinyapps.io/comp-cond/&quot;&gt;here&lt;/a&gt;. For example, here’s Alan Gilbert’s top 15 composers:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2016-08-14-Nyphil-Composer-Conductor/gilbert.svg&quot; alt=&quot;Gilbert&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;He has actually played Tchaikovsky with the NY Phil more than 125 times, and there are many Romantic-era stalwarts on this list. But in support of Gilbert’s reputation for forward-looking programming, &lt;a href=&quot;https://en.wikipedia.org/wiki/Christopher_Rouse_(composer)&quot;&gt;Christopher Rouse&lt;/a&gt; is his 10th most conducted composer. The composer called “Anthem” is not a person, I believe it’s just the National Anthem.&lt;/p&gt;
+
+&lt;p&gt;How about the NY Phil’s most famous (arguably) conductor?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2016-08-14-Nyphil-Composer-Conductor/bernstein.svg&quot; alt=&quot;Gilbert&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;His list looks rather patriotic, with 5 Americans in his top 15. He conducted &lt;a href=&quot;https://en.wikipedia.org/wiki/Aaron_Copland&quot;&gt;Copland&lt;/a&gt; with the orchestra more than 150 times, and of course he played a lot of his own works. We also see that he performed Mahler about 125 times; he was a major proponent of the composer.&lt;/p&gt;
+
+&lt;p&gt;Try out the &lt;code class=&quot;highlighter-rouge&quot;&gt;Shiny&lt;/code&gt; app and let me know if you have any comments.&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 14 Aug 2016 00:00:00 -0400</pubDate>
+        <link>http://delimited0.github.io/music,/nyphil/2016/08/14/Nyphil-Composer-Conductor.html</link>
+        <guid isPermaLink="true">http://delimited0.github.io/music,/nyphil/2016/08/14/Nyphil-Composer-Conductor.html</guid>
+        
+        
+        <category>music,</category>
+        
+        <category>nyphil</category>
+        
+      </item>
     
       <item>
         <title>Topic Modeling the Daily Princetonian</title>
@@ -336,10 +368,11 @@
 
 &lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
 
-&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;Porter:1980&quot;&gt;Porter, M. F. (1980). An algorithm for suffix stripping. &lt;i&gt;Program&lt;/i&gt;, &lt;i&gt;14&lt;/i&gt;(3), 130–137. Retrieved from http://dblp.uni-trier.de/db/journals/program/program14.html#Porter80&lt;/span&gt;&lt;/li&gt;
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;Teh:2007&quot;&gt;Teh, Y. W., Newman, D., &amp;amp; Welling, M. A collapsed variational Bayesian inference algorithm for latent Dirichlet allocation. In &lt;i&gt;In NIPS&lt;/i&gt; (p. 2006).&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;Porter:1980&quot;&gt;Porter, M. F. (1980). An algorithm for suffix stripping. &lt;i&gt;Program&lt;/i&gt;, &lt;i&gt;14&lt;/i&gt;(3), 130–137. Retrieved from http://dblp.uni-trier.de/db/journals/program/program14.html#Porter80&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;Blei:2003&quot;&gt;Blei, D. M., Ng, A. Y., &amp;amp; Jordan, M. I. (2003). Latent Dirichlet Allocation. &lt;i&gt;J. Mach. Learn. Res.&lt;/i&gt;, &lt;i&gt;3&lt;/i&gt;, 993–1022. Retrieved from http://dl.acm.org/citation.cfm?id=944919.944937&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;Yano:2009&quot;&gt;Yano, T., Cohen, W. W., &amp;amp; Smith, N. A. (2009). Predicting Response to Political Blog Posts with Topic Models. In &lt;i&gt;Proceedings of Human Language Technologies: The 2009 Annual Conference of the North American Chapter of the Association for Computational Linguistics&lt;/i&gt; (pp. 477–485). Stroudsburg, PA, USA: Association for Computational Linguistics. Retrieved from http://dl.acm.org/citation.cfm?id=1620754.1620824&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;Blei:2009&quot;&gt;Blei, D. M., &amp;amp; Lafferty, J. D. (2009). Topic Models.&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;li&gt;&lt;span id=&quot;Blei:2009&quot;&gt;Blei, D. M., &amp;amp; Lafferty, J. D. (2009). Topic Models.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;Yano:2009&quot;&gt;Yano, T., Cohen, W. W., &amp;amp; Smith, N. A. (2009). Predicting Response to Political Blog Posts with Topic Models. In &lt;i&gt;Proceedings of Human Language Technologies: The 2009 Annual Conference of the North American Chapter of the Association for Computational Linguistics&lt;/i&gt; (pp. 477–485). Stroudsburg, PA, USA: Association for Computational Linguistics. Retrieved from http://dl.acm.org/citation.cfm?id=1620754.1620824&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
 
 </description>
         <pubDate>Mon, 04 Jul 2016 00:00:00 -0400</pubDate>

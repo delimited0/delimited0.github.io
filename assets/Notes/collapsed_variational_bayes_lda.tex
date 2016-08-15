@@ -1,0 +1,50 @@
+\documentclass{article}
+
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+
+
+% order: \order[st]{1}, \order{k}
+\newcommand{\order}[2][th]{\ensuremath{{#2}^{\text{#1}}}}
+
+% Matrix transpose
+\newcommand{\trans}[1]{\ensuremath{{#1}^\intercal}}
+
+% Matrix inverse \inv[2]{\Abf} or \inv{\Abf}
+\newcommand{\inv}[2][1]{\ensuremath{{#2}^{\text{-}{#1}}}}
+
+% expectation
+\DeclareMathOperator{\E}{\mathbb{E}}
+
+\begin{document}
+\title{Collapsed Variational Bayes}
+\author{Patrick Ding}
+\maketitle
+\thispagestyle{empty}
+
+These notes are meant to fill in the gaps of \cite{Teh:2007}.
+
+\section{Derivation}
+
+We approximate the posterior with
+\begin{equation}
+q(z, \theta, \beta) = q(\theta, \beta|z)q(z|\gamma)
+\end{equation}
+%
+We lower bound the log likelihood:
+%
+\begin{align}
+\log p(w|\alpha, \eta) &= \log \int \int \sum_z \frac{p(\theta, z, \beta, w |\alpha, \eta)}{q(z, \theta, \beta)} q(z, \theta, \beta) d\theta d\beta
+\\
+&=  \log \E_{q(z)} \bigg[ \E_{q(\theta, \beta| z)} \bigg[\frac{p(\theta, z, \beta, w|\alpha, \eta)}{q(z)q(\theta, \beta|z)}\bigg]\bigg]
+\\
+& \ge 
+\end{align}
+
+
+\bibstyle{natbib}
+\bibliography{../../_bibliography/references.bib}
+
+\end{document}
