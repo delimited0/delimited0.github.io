@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Topic Models for New York Philharmonic Programs</title>
+  <meta name="description" content="I have read about applications of topic models beyond text to things like genetic data and image data, but as far as I can tell there hasn’t been much work o...">
+
+  <!-- bootstrap stuff -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="/css/main.css">
+
+  <link rel="canonical" href="http://delimited0.github.io/music,/nyphil/2016/10/02/Nyphil-Topics.html">
+  <link rel="alternate" type="application/rss+xml" title="Experiments" href="http://delimited0.github.io/feed.xml">
+
+
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Experiments</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+        
+          
+        
+          
+          <a class="page-link" href="/css/main.css"></a>
+          
+        
+          
+          <a class="page-link" href="/feed.xml"></a>
+          
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+          <a class="page-link" href="/notes/">Notes</a>
+          
+        
+          
+          <a class="page-link" href="/">Home</a>
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Topic Models for New York Philharmonic Programs</h1>
+    <p class="post-meta"><time datetime="2016-10-02T00:00:00-04:00" itemprop="datePublished">Oct 2, 2016</time></p>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>I have read about applications of topic models beyond text to things like genetic data and image data, but as far as I can tell there hasn’t been much work on topic modeling musical performance data. I think the performance program data from the New York Philharmonic <a href="https://github.com/nyphilarchive/PerformanceHistory">archive</a> is very amenable to topic modeling. For example you could think of the concerts as being documents, and the pieces performed as being words. Then assume a generative model that draws pieces from a topic-specific distribution of pieces conditional on a latent topic assignment variable, which is itself drawn from a concert-specific topic-distribution parameter.</p>
+
+<p>Recently I implemented the Topics-Over-Time (TOT) model <a href="#Wang:2006">(Wang &amp; McCallum, 2006)</a> and applied it to New York Philharmonic performances. This model adds an observed timestamp variable for each word, drawn from topic-specific beta distribution conditional on the latent topic, which allows modeling of time dynamics for topics. For this project I did not treat pieces as words, but instead used composers of pieces. This reduces the sparsity of the problem a bit, since composers wrote many pieces but many individual pieces are performed very rarely (no I haven’t checked, but this seems reasonable to me). Also instead of using concerts as documents, I aggregated all the composers’ pieces performed by the same conductor into a document, so that I could analyze per-conductor topic distributions.</p>
+
+<p>I fit a 70 topic model using a collapsed Gibbs sampler. I chose 70 topics on the basis of coherence scores <a href="#Mimno:2011">(Mimno, Wallach, Talley, Leenders, &amp; McCallum, 2011)</a> for a variety of topic numbers. Below are four of the inferred topics, with composers ranked in decreasing order of term score, that I found interesting.</p>
+
+<p><img src="/assets/2016-10-02-Nyphil-Topics/topic_table.svg" alt="Topics" /></p>
+
+<p>The labels are my interpretation of course. In Musicals/Pops, we see <a href="https://en.wikipedia.org/wiki/Stephen_Sondheim">Stephen Sondheim</a> at the top, who is famous for his musical scores. In Opera we see the usual, mainly Italian, suspects like <a href="https://en.wikipedia.org/wiki/Giuseppe_Verdi">Verdi</a> and <a href="https://en.wikipedia.org/wiki/Giacomo_Puccini">Puccini</a>. In American we have <a href="https://en.wikipedia.org/wiki/Charles_Ives">Ives</a> and <a href="https://en.wikipedia.org/wiki/John_Philip_Sousa">John Phillip Sousa</a>, the latter of <a href="https://www.youtube.com/watch?v=a-7XWhyvIpE">Stars-and-Stripes</a> fame. Finally I’ve included a topic I call Standard, because it’s filled with stalwarts of the orchestral repertoire. This is the bread and butter of orchestral fare that orchestras everywhere return to time and time again.</p>
+
+<p>The TOT model assumes a beta distribution for the normalized timestamp, and estimates them using method-of-moments. Here are the time distribution for the four topics I discussed.</p>
+
+<p><img src="/assets/2016-10-02-Nyphil-Topics/topic_time_grid.svg" alt="topic_time" /></p>
+
+<p>The topics are very localized, only American covers much more than a few decades. This is not so desirable, since you would expect topics like opera to be persistent. Especially the standard topic should be present throughout the history. Instead the topics might just correspond to individual conductors, whose careers only last so long. Or there might be some kind of organizational quirk that leads to localized topics, like if a pops series was begun after 1990 or so, leading to the pops topic.</p>
+
+<p>For each topic you can see which conductors have the highest probability. For the above topics:</p>
+
+<p><img src="/assets/2016-10-02-Nyphil-Topics/conductor_table.svg" alt="topic_time" /></p>
+
+<p>I’m not familiar with most of the names here, but you can see that <a href="https://en.wikipedia.org/wiki/Aaron_Copland">Aaron Copland</a> has a high probability of conducting American music, which makes sense. Granted that’s because he mostly conducted his own works, see this at my conductor-composer browser <a href="https://patrickding.shinyapps.io/comp-cond/">here</a>. You can see that there are some issues with conductor tokenizing; Andre Previn gets listed twice because of what looks like a unicode issue and sometimes multiple conductors are listed for one piece performed, as with <a href="https://en.wikipedia.org/wiki/Claudio_Abbado">Claudio Abbado</a> and friends in the American category.</p>
+
+<p>The TOT paper also describes how you can calculate topic distribution mixtures over time:</p>
+
+<p><img src="/assets/2016-10-02-Nyphil-Topics/topic_dist.svg" alt="topic_time" /></p>
+
+<p>The four topics discussed above are pops (29), opera (52), American (45), and standard (26). There are relatively few topics early on, and then many after about 1930. Partly that’s because the NY phil didn’t have as many performances in the nineteenth century. But perhaps it also reflects an increase in programming diversity in the twentieth century, due to conductor preferences and/or general musical trends.</p>
+
+<p>I hope you enjoyed the pretty plots, but there are quite a few issues with the application of TOT to this kind of data. Most importantly I’m not even using all the data available; ideally I’d also model pieces played, not just composers, so that we could allow for topics that favor certain pieces for the same composer. Another issue is that topic modeling does not work so well for shorter documents (see this <a href="http://stats.stackexchange.com/questions/25558/topic-models-for-short-documents">question</a> on stats.stackexchange), and concert programs are all very short, usually with fewer than 10 pieces performed. There has been some work on directly modeling word co-occurence <a href="#Yan:2013">(Yan, Guo, Lan, &amp; Cheng, 2013)</a> in shorter documents that leads to good results, and I think it might be effective for this kind of data.</p>
+
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Experiments</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Experiments</li>
+          <li><a href="mailto:patrickding00@gmail.com">patrickding00@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          <li>
+            <a href="https://www.linkedin.com/in/patrick-ding"><i class="fa fa-linkedin-square" aria-hidden="true"></i><span class="username"> Patrick Ding</span></a>
+
+          </li>
+
+          
+          <li>
+            <a href="https://github.com/delimited0"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">delimited0</span></a>
+
+          </li>
+          
+
+          <li>
+            <a href="http://stats.stackexchange.com/users/122761/delimited"><i class="fa fa-stack-exchange" aria-hidden="true"></i><span class="username"> delimited</span></a>
+
+          </li>
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Patrick Ding's website. A blog with my projects and information about me.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

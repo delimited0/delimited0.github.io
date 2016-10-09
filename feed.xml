@@ -1,14 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Patrick Ding</title>
+    <title>Experiments</title>
     <description>Patrick Ding&#39;s website. A blog with my projects and information about me.
 </description>
     <link>http://delimited0.github.io/</link>
     <atom:link href="http://delimited0.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 14 Aug 2016 23:45:41 -0400</pubDate>
-    <lastBuildDate>Sun, 14 Aug 2016 23:45:41 -0400</lastBuildDate>
+    <pubDate>Sat, 08 Oct 2016 21:56:23 -0400</pubDate>
+    <lastBuildDate>Sat, 08 Oct 2016 21:56:23 -0400</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>Topic Models for New York Philharmonic Programs</title>
+        <description>&lt;p&gt;I have read about applications of topic models beyond text to things like genetic data and image data, but as far as I can tell there hasn’t been much work on topic modeling musical performance data. I think the performance program data from the New York Philharmonic &lt;a href=&quot;https://github.com/nyphilarchive/PerformanceHistory&quot;&gt;archive&lt;/a&gt; is very amenable to topic modeling. For example you could think of the concerts as being documents, and the pieces performed as being words. Then assume a generative model that draws pieces from a topic-specific distribution of pieces conditional on a latent topic assignment variable, which is itself drawn from a concert-specific topic-distribution parameter.&lt;/p&gt;
+
+&lt;p&gt;Recently I implemented the Topics-Over-Time (TOT) model &lt;a href=&quot;#Wang:2006&quot;&gt;(Wang &amp;amp; McCallum, 2006)&lt;/a&gt; and applied it to New York Philharmonic performances. This model adds an observed timestamp variable for each word, drawn from topic-specific beta distribution conditional on the latent topic, which allows modeling of time dynamics for topics. For this project I did not treat pieces as words, but instead used composers of pieces. This reduces the sparsity of the problem a bit, since composers wrote many pieces but many individual pieces are performed very rarely (no I haven’t checked, but this seems reasonable to me). Also instead of using concerts as documents, I aggregated all the composers’ pieces performed by the same conductor into a document, so that I could analyze per-conductor topic distributions.&lt;/p&gt;
+
+&lt;p&gt;I fit a 70 topic model using a collapsed Gibbs sampler. I chose 70 topics on the basis of coherence scores &lt;a href=&quot;#Mimno:2011&quot;&gt;(Mimno, Wallach, Talley, Leenders, &amp;amp; McCallum, 2011)&lt;/a&gt; for a variety of topic numbers. Below are four of the inferred topics, with composers ranked in decreasing order of term score, that I found interesting.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2016-10-02-Nyphil-Topics/topic_table.svg&quot; alt=&quot;Topics&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The labels are my interpretation of course. In Musicals/Pops, we see &lt;a href=&quot;https://en.wikipedia.org/wiki/Stephen_Sondheim&quot;&gt;Stephen Sondheim&lt;/a&gt; at the top, who is famous for his musical scores. In Opera we see the usual, mainly Italian, suspects like &lt;a href=&quot;https://en.wikipedia.org/wiki/Giuseppe_Verdi&quot;&gt;Verdi&lt;/a&gt; and &lt;a href=&quot;https://en.wikipedia.org/wiki/Giacomo_Puccini&quot;&gt;Puccini&lt;/a&gt;. In American we have &lt;a href=&quot;https://en.wikipedia.org/wiki/Charles_Ives&quot;&gt;Ives&lt;/a&gt; and &lt;a href=&quot;https://en.wikipedia.org/wiki/John_Philip_Sousa&quot;&gt;John Phillip Sousa&lt;/a&gt;, the latter of &lt;a href=&quot;https://www.youtube.com/watch?v=a-7XWhyvIpE&quot;&gt;Stars-and-Stripes&lt;/a&gt; fame. Finally I’ve included a topic I call Standard, because it’s filled with stalwarts of the orchestral repertoire. This is the bread and butter of orchestral fare that orchestras everywhere return to time and time again.&lt;/p&gt;
+
+&lt;p&gt;The TOT model assumes a beta distribution for the normalized timestamp, and estimates them using method-of-moments. Here are the time distribution for the four topics I discussed.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2016-10-02-Nyphil-Topics/topic_time_grid.svg&quot; alt=&quot;topic_time&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The topics are very localized, only American covers much more than a few decades. This is not so desirable, since you would expect topics like opera to be persistent. Especially the standard topic should be present throughout the history. Instead the topics might just correspond to individual conductors, whose careers only last so long. Or there might be some kind of organizational quirk that leads to localized topics, like if a pops series was begun after 1990 or so, leading to the pops topic.&lt;/p&gt;
+
+&lt;p&gt;For each topic you can see which conductors have the highest probability. For the above topics:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2016-10-02-Nyphil-Topics/conductor_table.svg&quot; alt=&quot;topic_time&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I’m not familiar with most of the names here, but you can see that &lt;a href=&quot;https://en.wikipedia.org/wiki/Aaron_Copland&quot;&gt;Aaron Copland&lt;/a&gt; has a high probability of conducting American music, which makes sense. Granted that’s because he mostly conducted his own works, see this at my conductor-composer browser &lt;a href=&quot;https://patrickding.shinyapps.io/comp-cond/&quot;&gt;here&lt;/a&gt;. You can see that there are some issues with conductor tokenizing; Andre Previn gets listed twice because of what looks like a unicode issue and sometimes multiple conductors are listed for one piece performed, as with &lt;a href=&quot;https://en.wikipedia.org/wiki/Claudio_Abbado&quot;&gt;Claudio Abbado&lt;/a&gt; and friends in the American category.&lt;/p&gt;
+
+&lt;p&gt;The TOT paper also describes how you can calculate topic distribution mixtures over time:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2016-10-02-Nyphil-Topics/topic_dist.svg&quot; alt=&quot;topic_time&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The four topics discussed above are pops (29), opera (52), American (45), and standard (26). There are relatively few topics early on, and then many after about 1930. Partly that’s because the NY phil didn’t have as many performances in the nineteenth century. But perhaps it also reflects an increase in programming diversity in the twentieth century, due to conductor preferences and/or general musical trends.&lt;/p&gt;
+
+&lt;p&gt;I hope you enjoyed the pretty plots, but there are quite a few issues with the application of TOT to this kind of data. Most importantly I’m not even using all the data available; ideally I’d also model pieces played, not just composers, so that we could allow for topics that favor certain pieces for the same composer. Another issue is that topic modeling does not work so well for shorter documents (see this &lt;a href=&quot;http://stats.stackexchange.com/questions/25558/topic-models-for-short-documents&quot;&gt;question&lt;/a&gt; on stats.stackexchange), and concert programs are all very short, usually with fewer than 10 pieces performed. There has been some work on directly modeling word co-occurence &lt;a href=&quot;#Yan:2013&quot;&gt;(Yan, Guo, Lan, &amp;amp; Cheng, 2013)&lt;/a&gt; in shorter documents that leads to good results, and I think it might be effective for this kind of data.&lt;/p&gt;
+
+</description>
+        <pubDate>Sun, 02 Oct 2016 00:00:00 -0400</pubDate>
+        <link>http://delimited0.github.io/music,/nyphil/2016/10/02/Nyphil-Topics.html</link>
+        <guid isPermaLink="true">http://delimited0.github.io/music,/nyphil/2016/10/02/Nyphil-Topics.html</guid>
+        
+        
+        <category>music,</category>
+        
+        <category>nyphil</category>
+        
+      </item>
     
       <item>
         <title>New York Philharmonic Conductors</title>
@@ -24,7 +68,7 @@
 
 &lt;p&gt;How about the NY Phil’s most famous (arguably) conductor?&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/2016-08-14-Nyphil-Composer-Conductor/bernstein.svg&quot; alt=&quot;Gilbert&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/2016-08-14-Nyphil-Composer-Conductor/bernstein.svg&quot; alt=&quot;Bernstein&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;His list looks rather patriotic, with 5 Americans in his top 15. He conducted &lt;a href=&quot;https://en.wikipedia.org/wiki/Aaron_Copland&quot;&gt;Copland&lt;/a&gt; with the orchestra more than 150 times, and of course he played a lot of his own works. We also see that he performed Mahler about 125 times; he was a major proponent of the composer.&lt;/p&gt;
 
@@ -371,8 +415,11 @@
 &lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;Teh:2007&quot;&gt;Teh, Y. W., Newman, D., &amp;amp; Welling, M. A collapsed variational Bayesian inference algorithm for latent Dirichlet allocation. In &lt;i&gt;In NIPS&lt;/i&gt; (p. 2006).&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;Porter:1980&quot;&gt;Porter, M. F. (1980). An algorithm for suffix stripping. &lt;i&gt;Program&lt;/i&gt;, &lt;i&gt;14&lt;/i&gt;(3), 130–137. Retrieved from http://dblp.uni-trier.de/db/journals/program/program14.html#Porter80&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;Blei:2003&quot;&gt;Blei, D. M., Ng, A. Y., &amp;amp; Jordan, M. I. (2003). Latent Dirichlet Allocation. &lt;i&gt;J. Mach. Learn. Res.&lt;/i&gt;, &lt;i&gt;3&lt;/i&gt;, 993–1022. Retrieved from http://dl.acm.org/citation.cfm?id=944919.944937&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;Wang:2006&quot;&gt;Wang, X., &amp;amp; McCallum, A. (2006). Topics over Time: A non-Markov Continuous-time Model of Topical Trends. In &lt;i&gt;Proceedings of the 12th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining&lt;/i&gt; (pp. 424–433). New York, NY, USA: ACM. http://doi.org/10.1145/1150402.1150450&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;Blei:2009&quot;&gt;Blei, D. M., &amp;amp; Lafferty, J. D. (2009). Topic Models.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;Yano:2009&quot;&gt;Yano, T., Cohen, W. W., &amp;amp; Smith, N. A. (2009). Predicting Response to Political Blog Posts with Topic Models. In &lt;i&gt;Proceedings of Human Language Technologies: The 2009 Annual Conference of the North American Chapter of the Association for Computational Linguistics&lt;/i&gt; (pp. 477–485). Stroudsburg, PA, USA: Association for Computational Linguistics. Retrieved from http://dl.acm.org/citation.cfm?id=1620754.1620824&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;li&gt;&lt;span id=&quot;Yano:2009&quot;&gt;Yano, T., Cohen, W. W., &amp;amp; Smith, N. A. (2009). Predicting Response to Political Blog Posts with Topic Models. In &lt;i&gt;Proceedings of Human Language Technologies: The 2009 Annual Conference of the North American Chapter of the Association for Computational Linguistics&lt;/i&gt; (pp. 477–485). Stroudsburg, PA, USA: Association for Computational Linguistics. Retrieved from http://dl.acm.org/citation.cfm?id=1620754.1620824&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;Mimno:2011&quot;&gt;Mimno, D., Wallach, H. M., Talley, E., Leenders, M., &amp;amp; McCallum, A. (2011). Optimizing Semantic Coherence in Topic Models. In &lt;i&gt;Proceedings of the Conference on Empirical Methods in Natural Language Processing&lt;/i&gt; (pp. 262–272). Stroudsburg, PA, USA: Association for Computational Linguistics. Retrieved from http://dl.acm.org/citation.cfm?id=2145432.2145462&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;Yan:2013&quot;&gt;Yan, X., Guo, J., Lan, Y., &amp;amp; Cheng, X. (2013). A Biterm Topic Model for Short Texts. In &lt;i&gt;Proceedings of the 22Nd International Conference on World Wide Web&lt;/i&gt; (pp. 1445–1456). New York, NY, USA: ACM. http://doi.org/10.1145/2488388.2488514&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
 
 </description>
         <pubDate>Mon, 04 Jul 2016 00:00:00 -0400</pubDate>
