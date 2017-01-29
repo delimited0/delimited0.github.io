@@ -6,9 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Home</title>
-  <meta name="description" content="Patrick Ding's website. A blog with my projects and information about me.
-">
+  <title>Terminal Reminders</title>
+  <meta name="description" content="This is for me, since I’ll forget. I was trying to install tensorflow using pip on MacOS Sierra and was having a hard time. After some googling, I found this...">
 
   <!-- bootstrap stuff -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -25,7 +24,7 @@
 
   <link rel="stylesheet" href="/css/main.css">
 
-  <link rel="canonical" href="http://delimited0.github.io/">
+  <link rel="canonical" href="http://delimited0.github.io/code/2017/01/28/Installation-Deploy-Notes.html">
   <link rel="alternate" type="application/rss+xml" title="Experiments" href="http://delimited0.github.io/feed.xml">
 
 
@@ -84,69 +83,37 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="home">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <h1 class="page-heading">Posts</h1>
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Terminal Reminders</h1>
+    <p class="post-meta"><time datetime="2017-01-28T00:00:00-05:00" itemprop="datePublished">Jan 28, 2017</time></p>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </header>
 
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">Jan 28, 2017</span>
-
-        <h2>
-          <a class="post-link" href="/code/2017/01/28/Installation-Deploy-Notes.html">Terminal Reminders</a>
-        </h2>
-
-        <p>This is for me, since I’ll forget. I was trying to install <code class="highlighter-rouge">tensorflow</code> using <code class="highlighter-rouge">pip</code> on MacOS Sierra and was having a hard time. After some googling, I found <a href="http://apple.stackexchange.com/questions/209572/how-to-use-pip-after-the-os-x-el-capitan-upgrade">this</a> apple.stackexchange post, and the response by <a href="http://apple.stackexchange.com/users/156306/michal-p%c5%99%c3%adhoda">Michal Prihoda</a> suggests using</p>
+  <div class="post-content" itemprop="articleBody">
+    <p>This is for me, since I’ll forget. I was trying to install <code class="highlighter-rouge">tensorflow</code> using <code class="highlighter-rouge">pip</code> on MacOS Sierra and was having a hard time. After some googling, I found <a href="http://apple.stackexchange.com/questions/209572/how-to-use-pip-after-the-os-x-el-capitan-upgrade">this</a> apple.stackexchange post, and the response by <a href="http://apple.stackexchange.com/users/156306/michal-p%c5%99%c3%adhoda">Michal Prihoda</a> suggests using</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>pip install --user &lt;modulename&gt;
 </code></pre>
 </div>
 
+<p>to install modules for the current user. Works for me. Since I’m installing <code class="highlighter-rouge">tensorflow</code> for the <code class="highlighter-rouge">Edward</code> <a href="http://edwardlib.org/">module</a>, I actually need <code class="highlighter-rouge">tensorflow</code> v0.11.0 for now so I used</p>
 
-      </li>
-    
-      <li>
-        <span class="post-meta">Oct 2, 2016</span>
-
-        <h2>
-          <a class="post-link" href="/music,/nyphil/2016/10/02/Nyphil-Topics.html">Topic Models for New York Philharmonic Programs</a>
-        </h2>
-
-        <p>I have read about applications of topic models beyond text to things like genetic data and image data, but as far as I can tell there hasn’t been much work on topic modeling musical performance data. I think the performance program data from the New York Philharmonic <a href="https://github.com/nyphilarchive/PerformanceHistory">archive</a> is very amenable to topic modeling. For example you could think of the concerts as being documents, and the pieces performed as being words. Then assume a generative model that draws pieces from a topic-specific distribution of pieces conditional on a latent topic assignment variable, which is itself drawn from a concert-specific topic-distribution parameter.</p>
-
-
-      </li>
-    
-      <li>
-        <span class="post-meta">Aug 14, 2016</span>
-
-        <h2>
-          <a class="post-link" href="/music,/nyphil/2016/08/14/Nyphil-Composer-Conductor.html">New York Philharmonic Conductors</a>
-        </h2>
-
-        <p>In January the New York Philharmonic <a href="http://www.nytimes.com/2016/01/28/arts/music/new-york-philharmonic-taps-jaap-van-zweden-as-its-next-maestro.html?action=click&amp;contentCollection=Music&amp;module=RelatedCoverage&amp;region=Marginalia&amp;pgtype=article">appointed</a> Jaap van Zweden as its next music director. According to the various news and magazine articles about the announcement, van Zweden seems to be more inclined toward Beethoven, Brahms, and other classical music meat-and-potatoes composers compared to his current director Alan Gilbert.</p>
-
-
-      </li>
-    
-      <li>
-        <span class="post-meta">Jul 4, 2016</span>
-
-        <h2>
-          <a class="post-link" href="/prince,/topic-models/2016/07/04/Daily-Prince-Actm.html">Topic Modeling the Daily Princetonian</a>
-        </h2>
-
-        <p>One of my favorite ways to waste time is reading internet comments. You can observe all kinds of angry people there and wonder at their pathologies. While I was still in school I particularly enjoyed reading the comments section of the <em>Daily Princetonian</em> because of its relevance to me. Though I only worked for a brief time formatting the print edition of the paper, I got to know some of the journalists, opinion writers, and editors through that work and through classes. Writing for a college newspaper requires a thick skin; the commenters are almost always out to get you.</p>
-
-
-      </li>
-    
-  </ul>
-  
-  <!-- <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>  -->
-
+<div class="highlighter-rouge"><pre class="highlight"><code>pip install --user https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-0.11.0-py2-none-any.whl
+</code></pre>
 </div>
+
+<p>I also always forget how to deploy this site. I’m using a rakefile that I found online a while back that lets me use plugins while hosting on Githu; I don’t remember the source unfortunately. I call it with:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>rake git:deploy
+</code></pre>
+</div>
+
+
+  </div>
+
+</article>
 
       </div>
     </div>

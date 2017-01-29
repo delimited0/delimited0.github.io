@@ -6,9 +6,39 @@
 </description>
     <link>http://delimited0.github.io/</link>
     <atom:link href="http://delimited0.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 08 Oct 2016 21:56:23 -0400</pubDate>
-    <lastBuildDate>Sat, 08 Oct 2016 21:56:23 -0400</lastBuildDate>
+    <pubDate>Sun, 29 Jan 2017 12:25:28 -0500</pubDate>
+    <lastBuildDate>Sun, 29 Jan 2017 12:25:28 -0500</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>Terminal Reminders</title>
+        <description>&lt;p&gt;This is for me, since I’ll forget. I was trying to install &lt;code class=&quot;highlighter-rouge&quot;&gt;tensorflow&lt;/code&gt; using &lt;code class=&quot;highlighter-rouge&quot;&gt;pip&lt;/code&gt; on MacOS Sierra and was having a hard time. After some googling, I found &lt;a href=&quot;http://apple.stackexchange.com/questions/209572/how-to-use-pip-after-the-os-x-el-capitan-upgrade&quot;&gt;this&lt;/a&gt; apple.stackexchange post, and the response by &lt;a href=&quot;http://apple.stackexchange.com/users/156306/michal-p%c5%99%c3%adhoda&quot;&gt;Michal Prihoda&lt;/a&gt; suggests using&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip install --user &amp;lt;modulename&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;to install modules for the current user. Works for me. Since I’m installing &lt;code class=&quot;highlighter-rouge&quot;&gt;tensorflow&lt;/code&gt; for the &lt;code class=&quot;highlighter-rouge&quot;&gt;Edward&lt;/code&gt; &lt;a href=&quot;http://edwardlib.org/&quot;&gt;module&lt;/a&gt;, I actually need &lt;code class=&quot;highlighter-rouge&quot;&gt;tensorflow&lt;/code&gt; v0.11.0 for now so I used&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip install --user https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-0.11.0-py2-none-any.whl
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;I also always forget how to deploy this site. I’m using a rakefile that I found online a while back that lets me use plugins while hosting on Githu; I don’t remember the source unfortunately. I call it with:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rake git:deploy
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+</description>
+        <pubDate>Sat, 28 Jan 2017 00:00:00 -0500</pubDate>
+        <link>http://delimited0.github.io/code/2017/01/28/Installation-Deploy-Notes.html</link>
+        <guid isPermaLink="true">http://delimited0.github.io/code/2017/01/28/Installation-Deploy-Notes.html</guid>
+        
+        
+        <category>code</category>
+        
+      </item>
     
       <item>
         <title>Topic Models for New York Philharmonic Programs</title>
@@ -41,6 +71,17 @@
 &lt;p&gt;The four topics discussed above are pops (29), opera (52), American (45), and standard (26). There are relatively few topics early on, and then many after about 1930. Partly that’s because the NY phil didn’t have as many performances in the nineteenth century. But perhaps it also reflects an increase in programming diversity in the twentieth century, due to conductor preferences and/or general musical trends.&lt;/p&gt;
 
 &lt;p&gt;I hope you enjoyed the pretty plots, but there are quite a few issues with the application of TOT to this kind of data. Most importantly I’m not even using all the data available; ideally I’d also model pieces played, not just composers, so that we could allow for topics that favor certain pieces for the same composer. Another issue is that topic modeling does not work so well for shorter documents (see this &lt;a href=&quot;http://stats.stackexchange.com/questions/25558/topic-models-for-short-documents&quot;&gt;question&lt;/a&gt; on stats.stackexchange), and concert programs are all very short, usually with fewer than 10 pieces performed. There has been some work on directly modeling word co-occurence &lt;a href=&quot;#Yan:2013&quot;&gt;(Yan, Guo, Lan, &amp;amp; Cheng, 2013)&lt;/a&gt; in shorter documents that leads to good results, and I think it might be effective for this kind of data.&lt;/p&gt;
+
+&lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
+
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;Teh:2007&quot;&gt;Teh, Y. W., Newman, D., &amp;amp; Welling, M. A collapsed variational Bayesian inference algorithm for latent Dirichlet allocation. In &lt;i&gt;In NIPS&lt;/i&gt; (p. 2006).&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;Porter:1980&quot;&gt;Porter, M. F. (1980). An algorithm for suffix stripping. &lt;i&gt;Program&lt;/i&gt;, &lt;i&gt;14&lt;/i&gt;(3), 130–137. Retrieved from http://dblp.uni-trier.de/db/journals/program/program14.html#Porter80&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;Blei:2003&quot;&gt;Blei, D. M., Ng, A. Y., &amp;amp; Jordan, M. I. (2003). Latent Dirichlet Allocation. &lt;i&gt;J. Mach. Learn. Res.&lt;/i&gt;, &lt;i&gt;3&lt;/i&gt;, 993–1022. Retrieved from http://dl.acm.org/citation.cfm?id=944919.944937&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;Wang:2006&quot;&gt;Wang, X., &amp;amp; McCallum, A. (2006). Topics over Time: A non-Markov Continuous-time Model of Topical Trends. In &lt;i&gt;Proceedings of the 12th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining&lt;/i&gt; (pp. 424–433). New York, NY, USA: ACM. http://doi.org/10.1145/1150402.1150450&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;Blei:2009&quot;&gt;Blei, D. M., &amp;amp; Lafferty, J. D. (2009). Topic Models.&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;Yano:2009&quot;&gt;Yano, T., Cohen, W. W., &amp;amp; Smith, N. A. (2009). Predicting Response to Political Blog Posts with Topic Models. In &lt;i&gt;Proceedings of Human Language Technologies: The 2009 Annual Conference of the North American Chapter of the Association for Computational Linguistics&lt;/i&gt; (pp. 477–485). Stroudsburg, PA, USA: Association for Computational Linguistics. Retrieved from http://dl.acm.org/citation.cfm?id=1620754.1620824&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;Mimno:2011&quot;&gt;Mimno, D., Wallach, H. M., Talley, E., Leenders, M., &amp;amp; McCallum, A. (2011). Optimizing Semantic Coherence in Topic Models. In &lt;i&gt;Proceedings of the Conference on Empirical Methods in Natural Language Processing&lt;/i&gt; (pp. 262–272). Stroudsburg, PA, USA: Association for Computational Linguistics. Retrieved from http://dl.acm.org/citation.cfm?id=2145432.2145462&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span id=&quot;Yan:2013&quot;&gt;Yan, X., Guo, J., Lan, Y., &amp;amp; Cheng, X. (2013). A Biterm Topic Model for Short Texts. In &lt;i&gt;Proceedings of the 22Nd International Conference on World Wide Web&lt;/i&gt; (pp. 1445–1456). New York, NY, USA: ACM. http://doi.org/10.1145/2488388.2488514&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
 
 </description>
         <pubDate>Sun, 02 Oct 2016 00:00:00 -0400</pubDate>
