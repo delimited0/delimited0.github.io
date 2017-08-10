@@ -6,9 +6,450 @@
 </description>
     <link>http://delimited0.github.io/</link>
     <atom:link href="http://delimited0.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 29 Jan 2017 12:25:28 -0500</pubDate>
-    <lastBuildDate>Sun, 29 Jan 2017 12:25:28 -0500</lastBuildDate>
+    <pubDate>Thu, 10 Aug 2017 16:07:15 -0400</pubDate>
+    <lastBuildDate>Thu, 10 Aug 2017 16:07:15 -0400</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>Conductor Ideal Points, Part II</title>
+        <description>&lt;p&gt;See part 1 &lt;a href=&quot;/music/nyphil/2017/08/09/Nyphil-Ideal-Point.html&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;piece-parameters&quot;&gt;Piece Parameters&lt;/h1&gt;
+
+&lt;p&gt;Ordering &lt;script type=&quot;math/tex&quot;&gt;\alpha_j&lt;/script&gt; by ascending value we see the most likely to be played pieces. Indeed these are workhorses performed by ochestras everywhere.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Piece&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Difficulty&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Wagner,  Richard: MEISTERSINGER, DIE, WWV 96&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-0.57&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Beethoven,  Ludwig  van: SYMPHONY NO. 5 IN C MINOR, OP.67&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-0.24&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Wagner,  Richard: TANNHAUSER, WWV 70&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-0.19&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Beethoven,  Ludwig  van: SYMPHONY NO. 7 IN A MAJOR, OP.92&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-0.18&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Wagner,  Richard: LOHENGRIN&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-0.12&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Mendelssohn,  Felix: CONCERTO, VIOLIN, E MINOR, OP.64&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-0.11&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Brahms,  Johannes: SYMPHONY NO. 1 IN C MINOR, OP. 68&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-0.03&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Brahms,  Johannes: SYMPHONY NO. 4 IN E MINOR, OP. 98&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-0.02&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Tchaikovsky,  Pyotr  Ilyich: SYMPHONY NO. 6, B MINOR, OP. 74 (PATHÉTIQUE)&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-0.02&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Beethoven,  Ludwig  van: LEONORE OVERTURE NO. 3, OP. 72B&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.01&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Next we look at the first dimension of &lt;script type=&quot;math/tex&quot;&gt;\beta_j&lt;/script&gt;. Looking at the pieces with lowest values, we see what I consider standard orchestral works that would show up on a subscription season program. Notice that this is independent of the age of the piece; Rihm, Stucky, and Starer were all working in the later 20th and early part of this century, and Rihm is still alive and composing.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Piece&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Discrimination D1&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Haydn,  Franz  Joseph: OVERTURE FOR AN ENGLISH OPERA&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-15.62&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Milhaud,  Darius: OVERTURE PHILHARMONIQUE&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-15.40&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Rihm,  Wolfgang: TWO OTHER MOVEMENTS&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-15.07&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Cornelius,  Peter: BARBIER VON BAGDAD, DER&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-14.88&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Bach,  Johann  Sebastian: PARTITA NO. 3, E MAJOR, PRELUDE (ORCH) BWV 1006 (ARR. Bakaleinikoff)&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-13.84&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Boccherini,  Luigi: CONCERTO, VIOLIN, D MAJOR, G.486&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-13.45&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Stucky,  Steven: RHAPSODIES&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-13.38&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Starer,  Robert: CONCERTO, VIOLA, STRINGS AND PERCUSSION&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-13.10&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Wolf,  Hugo: VERBORGENHEIT (ORCH) (ARR. Unspecified)&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-13.04&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Saint-Saens [Saint-Saëns],  Camille: MARCHE HEROIQUE, OP. 34&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-13.00&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Looking at the pieces with highest values, we see what I consider popular works that would show up on special, pops, or outreach type concerts. There are a lot of African-American spirituals, or at least arrangements or creations by white people trying to emulate the style. This dimension is also time independent; &lt;em&gt;The Colorful Variations&lt;/em&gt; was composed by a &lt;a href=&quot;http://www.nyphilkids.org/newsstand/frontrowcenter/frontrow_news1.html&quot;&gt;group&lt;/a&gt; of fifth graders in 1999.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Piece&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Discrimination D1&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Kessler,  James C.: ARMED FORCES SALUTE (ARR. Kessler)&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;8.62&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Spencer,  Victoria: COLORFUL VARIATIONS, THE&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;8.70&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Traditional,: HONOR! (ARR. Johnson)&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;8.71&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Traditional,: MASSA’S IN DE COL’, COL’ GROUN’ (ARR. Johnson)&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;8.75&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Traditional,: BLOW, GAB’L! (ARR. Johnson)&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;8.83&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Maltsby,  Carl: BEBE JESU, O BETHLEHEM&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;8.86&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Wolfe,  Jacques: WATER BOY (ARR. Johnson)&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;8.87&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;McGrimsey,  Robert: SWEET LITTLE JESUS BOY (ARR. Holland)&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;8.90&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Willis,  Wallis: SWING LOW, SWEET CHARIOT (ARR. Johnson)&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;9.26&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Traditional,: SPIRITUAL: CHILDREN, GO WHERE I SEND THEE (ARR. Morris)&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;9.47&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Traditional,: SOME O’ DESE DAYS (ARR. Johnson)&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;10.42&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;
+Based on these results my interpretation of this first dimension is as an indicator of how “art-music” or “pop” oriented a conductor is. Indeed a lot of movie and Broadway scores rank highly on this measure:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Piece&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Discrimination D1&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Kern, Jerome: SHOW BOAT (ORCH) (ARR. Goodman)&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;6.47&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Newman, Thomas: FINDING NEMO (ARR. Watters)&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;6.55&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Gruber, Franz Xaver: SILENT NIGHT (ARR. Cashmore)&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;6.90&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Rodgers, Richard: SOUND OF MUSIC: MY FAVORITE THINGS (ARR. Reifenberg)&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;7.00&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Williams, John: HARRY POTTER: SUITE&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;8.21&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Ordering the second dimension of $\beta_j$, we see that negative values here correspond to very conservative or older pieces. In fact Joachim Raff is rarely performed, but he was more popular in his lifetime in the nineteenth century.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Piece&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Discrimination D2&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Raff,  Joachim: SYMPHONY NO. 5 (LENORE) E MAJOR, OP. 177&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-12.63&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Bristow,  George  Frederick: SYMPHONY NO. 4, E MINOR, OP.50 (ARCADIAN)&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-12.30&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Gruber,  Franz  Xaver: SILENT NIGHT (ARR. Damrosch)&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-12.17&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sarasate,  Pablo  de: CAPRICE BASQUE, OP. 24&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-11.34&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Wagner,  Richard: MEISTERSINGER, DIE, WWV 96:  PREISLIED (VN, ORCH) (ARR. Wilhelmj)&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-11.18&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Liszt,  Franz: CHRISTUS&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-11.15&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Henselt,  Adolf  Von: CONCERTO, PIANO, F MINOR, OP. 16&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-11.11&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Kreutzer,  Conradin: APPROACH OF SPRING (FRUHLINGS-NAHEN)&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-10.89&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Beethoven,  Ludwig  van: DER WACHTELSCHLAG, WOO 129 (ARR. Damrosch)&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-10.83&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Oberthur,  Charles: DUET, VIOLIN AND HARP (UNSPECIFIED)&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;-10.64&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;
+The pieces with the most positive values here are more modern. Some are by contemporary composers like Zhao and Lindberg, others are musicals or movie scores. Curiously Alabieff and Reeves are from the nineteenth century. For whatever reason they tend to be performed by conductors who also perform more modern work. Perhaps the Reeves piece, being a work for band, ends up being performed with the pops pieces that bands often (at least in my experience) offer. For Alabieff I’m unsure.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Piece&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Discrimination D2&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Machado,  Roger: ENCUENTRO&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;9.83&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Berlin,  Irving: ANNIE GET YOUR GUN&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;9.85&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Lindberg,  Magnus: KRAFT&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;10.14&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Zhao,  Lin: DUO FOR CELLO, SHENG, AND ORCHESTRA&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;10.28&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Porter,  Cole: KISS ME KATE&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;10.36&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Matthews,  Artie: PASTIME RAG NO. 4&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;10.53&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Reeves,  David  Wallis: SECOND CONNECTICUT REGIMENT&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;10.65&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Morricone,  Andrea and Ennio: CINEMA PARADISO: LOVE THEME (ARR. Morley)&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;11.34&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Machado,  Roger: PETENERA&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;11.77&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Lara,  Manuel  Manrique De: GRANADA (ARR. Hayes)&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;11.87&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Alabieff,  Alexander: THE RUSSIAN NIGHTINGALE&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;12.66&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;conductor-ideal-points&quot;&gt;Conductor Ideal Points&lt;/h1&gt;
+
+&lt;p&gt;Finally I looked at the estimated ideal points of the music directors of the New York Philharmonic:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2017-08-10-Nyphil-Ideal-Point-II/nyphil-musdir-idealpt.svg&quot; alt=&quot;ideal points&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We see that as time goes on conductors generally become more “modern,” as we would expect. Notice that Pierre Boulez, who became music director in 1971, was actually more modern than his successors, except for Alan Gilbert. Both Boulez and Gilbert were/are known for programming contemporary works. Jaap van Zweden looks much less modern and more “poppy” than his nearest predecessors but that’s probably from a lack of data; he hasn’t performed that much with the New York Phil. So it’s probably best not to jump to conclusions about how forward looking van Zweden is based only on this dataset.&lt;/p&gt;
+
+&lt;p&gt;The conservativeness results matched my intuition, but I was suprised by the drift over time towards less poppiness and more seriousness. Perhaps earlier conductors were not as averse to performing things like folk songs and standards.&lt;/p&gt;
+
+&lt;h1 id=&quot;next&quot;&gt;Next&lt;/h1&gt;
+
+&lt;p&gt;Or perhaps poppiness is not exactly what that first dimension captures, and it combines what should be multiple dimensions. The model may benefit from having a higher dimensional latent space which could capture other aspects of conductor preference. I chose &lt;script type=&quot;math/tex&quot;&gt;d=2&lt;/script&gt; for ease of visualization mostly. If I have the time I would like to cook up a dynamic model of conductor preference that would account for concert-by-concert decisions on what to perform, using STAN or something like that.&lt;/p&gt;
+
+&lt;p&gt;It’s important to keep in mind conductors perform with many orchestras, so for most conductors beyond music directors of the New York Phil this dataset only gives a partial idea of their conducting preference. Nonetheless this is a very convenient way to analyze their latent traits.&lt;/p&gt;
+
+</description>
+        <pubDate>Thu, 10 Aug 2017 00:00:00 -0400</pubDate>
+        <link>http://delimited0.github.io/music/nyphil/2017/08/10/Nyphil-Ideal-Point-II.html</link>
+        <guid isPermaLink="true">http://delimited0.github.io/music/nyphil/2017/08/10/Nyphil-Ideal-Point-II.html</guid>
+        
+        
+        <category>music</category>
+        
+        <category>nyphil</category>
+        
+      </item>
+    
+      <item>
+        <title>Conductor Ideal Points Part I</title>
+        <description>&lt;p&gt;In a post last year I talked about the difference in musical preferences between the incoming New York Philharmonic music director, Jaap van Zweden, and his predecessor Alan Gilbert. There I simply compared counts of their most frequently performed composers. It gives you some idea of how they differ, but comparing plots of performance frequencies is cumbersome, especially if you want to compare multiple conductors and more than just their top 10 composers. In this post I apply ideal point modeling, from the pyschometrics and political science literature, to the problem of modeling conductor preferences. This approach allows for easy visualization of latent structure in conductor preferences.&lt;/p&gt;
+
+&lt;h1 id=&quot;ideal-point-models&quot;&gt;Ideal Point Models&lt;/h1&gt;
+
+&lt;p&gt;Ideal point models originate from item response theory (IRT) in pyschometrics. IRT is concerned with estimating latent ability by looking at a test taker’s responses to test items. By looking at many test takers’ correct and incorrect responses to many items, we can determine both the ability of the test takers and the difficulty of the items. Ideal point models in political science seek to estimate the latent ideological location (hence ideal point) of legislators (or supreme court justices, or anyone who votes) by using their voting behavior on things like bills. By looking at which legislators vote for or against which bills, we can determine their ideological preferences and the ideological bent of the bills. This political science interpretation is essentially what we need for finding conductor preferences, where we have conductors instead of legislators and musical pieces instead of bills. Of course there are no votes in music, but here we treat a conductor’s decision to ever play a piece with the New York Philharmonic as a ‘Yes’ vote, and not having played a piece a ‘No’ for that piece.&lt;/p&gt;
+
+&lt;p&gt;For this post we use the &lt;code class=&quot;highlighter-rouge&quot;&gt;R&lt;/code&gt; package &lt;code class=&quot;highlighter-rouge&quot;&gt;ideal&lt;/code&gt; by Simon Jackman, which implements the Bayesian ideal point model of &lt;a href=&quot;#Clinton:2004&quot;&gt;(Clinton, Jackman, &amp;amp; Rivers, 2004)&lt;/a&gt;. The model is as follows. Let &lt;script type=&quot;math/tex&quot;&gt;x_i \in \mathbb{R}^d&lt;/script&gt; be the ideal point of conductor &lt;script type=&quot;math/tex&quot;&gt;i&lt;/script&gt;, where &lt;script type=&quot;math/tex&quot;&gt;d&lt;/script&gt; is usually 1 or 2. We define&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\begin{align*}
+y^*_{ij} = x_i^T\beta_j - \alpha_j
+\end{align*}&lt;/script&gt;
+
+&lt;p&gt;where &lt;script type=&quot;math/tex&quot;&gt;y^*_{ij}&lt;/script&gt; is the latent propensity for conductor &lt;script type=&quot;math/tex&quot;&gt;i&lt;/script&gt; to play piece &lt;script type=&quot;math/tex&quot;&gt;j&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;\alpha_j&lt;/script&gt; is the &lt;em&gt;difficulty&lt;/em&gt; parameter for piece &lt;script type=&quot;math/tex&quot;&gt;j&lt;/script&gt;, and &lt;script type=&quot;math/tex&quot;&gt;\beta_j \in \mathbb{R}^{d}&lt;/script&gt; is the &lt;em&gt;discrimination&lt;/em&gt; parameter for piece &lt;script type=&quot;math/tex&quot;&gt;j&lt;/script&gt;. This is related to the observed performance history by setting the probabilty that conductor &lt;script type=&quot;math/tex&quot;&gt;i&lt;/script&gt; plays piece &lt;script type=&quot;math/tex&quot;&gt;j&lt;/script&gt; to&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;\begin{align*}
+Pr(y_{ij} = 1) = \Phi(y^*_{ij})
+\end{align*}&lt;/script&gt;
+
+&lt;p&gt;where &lt;script type=&quot;math/tex&quot;&gt;\Phi(\cdot)&lt;/script&gt; is the standard normal CDF. The &lt;code class=&quot;highlighter-rouge&quot;&gt;ideal&lt;/code&gt; package, as in the paper, puts 0-mean normal priors on &lt;script type=&quot;math/tex&quot;&gt;x&lt;/script&gt;, &lt;script type=&quot;math/tex&quot;&gt;\beta&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;\alpha&lt;/script&gt;, with a large variance on the piece parameters. The model is fit using augmented MCMC.&lt;/p&gt;
+
+&lt;p&gt;We see that lower &lt;script type=&quot;math/tex&quot;&gt;\alpha_j&lt;/script&gt; will increase &lt;script type=&quot;math/tex&quot;&gt;y^*_{ij}&lt;/script&gt;, increasing the probability of piece &lt;script type=&quot;math/tex&quot;&gt;j&lt;/script&gt; being played; it is a popularity parameter for the piece. &lt;script type=&quot;math/tex&quot;&gt;\beta_j&lt;/script&gt; is a slope parameter that determines how much propensity to play piece &lt;script type=&quot;math/tex&quot;&gt;j&lt;/script&gt; will change with conductor preference.&lt;/p&gt;
+
+&lt;h1 id=&quot;data&quot;&gt;Data&lt;/h1&gt;
+
+&lt;p&gt;I used the New York Philharmonic &lt;a href=&quot;https://github.com/nyphilarchive/PerformanceHistory&quot;&gt;data&lt;/a&gt; again but was more careful with the data munging. This time I used the &lt;code class=&quot;highlighter-rouge&quot;&gt;tidyjson&lt;/code&gt; package to extract the performance data, and I hope this snippet is useful to other &lt;code class=&quot;highlighter-rouge&quot;&gt;R&lt;/code&gt; users interested in this data set:&lt;/p&gt;
+
+&lt;div class=&quot;language-R highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tidyjson&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tidyverse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;programs&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tidyjson&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read_json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Programs/json/complete.json&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;json&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;concerts&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;programs&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gather_keys&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gather_array&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;spread_values&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jstring&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+                &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;program_id&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jstring&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;programID&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;orchestra&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jstring&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;orchestra&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;season&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jstring&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;season&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;enter_object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;concerts&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gather_array&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;spread_values&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;event_type&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jstring&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;eventType&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;location&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jstring&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Location&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;venue&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jstring&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Venue&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jstring&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Date&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;time&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jstring&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Time&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;document.id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array.index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;works&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;programs&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gather_keys&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gather_array&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;spread_values&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jstring&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+                &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;program_id&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jstring&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;programID&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;enter_object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;works&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gather_array&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; 
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;spread_values&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;work_id&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jstring&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ID&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;composer&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jstring&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;composerName&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jstring&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;workTitle&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;movement&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jstring&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;movement&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+                &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;conductor&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jstring&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;conductorName&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;select&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;document.id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array.index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  
+
+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;performance&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;left_join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;concerts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;works&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;by&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;id&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;There were other fields, like soloist, that I could have extracted but did not.&lt;/p&gt;
+
+&lt;p&gt;There were two duplication issues with the data.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;For subscription season concerts, conductors will perform the same program multiple times in a week. I treat this as one performance.&lt;/li&gt;
+  &lt;li&gt;Sometimes conductors will perform multiple movements of a single piece, but not the whole piece. The data has each movement as a separate entry. I treated multiple movements being performed in the same concert as one performance of the whole piece.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;After de-duplication I created an indicator matrix with conductors on the rows and pieces on the columns and passed that to &lt;code class=&quot;highlighter-rouge&quot;&gt;ideal&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;See all the data munging and analysis code at: &lt;a href=&quot;https://github.com/delimited0/PerformanceHistory/tree/master/IdealPoint&quot;&gt;https://github.com/delimited0/PerformanceHistory/tree/master/IdealPoint&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;results&quot;&gt;Results&lt;/h1&gt;
+
+&lt;p&gt;See part 2 &lt;a href=&quot;/music/nyphil/2017/08/10/Nyphil-Ideal-Point-II.html&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
+
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;Clinton:2004&quot;&gt;Clinton, J., Jackman, S., &amp;amp; Rivers, D. (2004). The Statistical Analysis of Roll Call Voting: A Unified Approach. &lt;i&gt;American Political Science Review&lt;/i&gt;, &lt;i&gt;98(2)&lt;/i&gt;, 355–370.&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
+
+</description>
+        <pubDate>Wed, 09 Aug 2017 00:00:00 -0400</pubDate>
+        <link>http://delimited0.github.io/music/nyphil/2017/08/09/Nyphil-Ideal-Point.html</link>
+        <guid isPermaLink="true">http://delimited0.github.io/music/nyphil/2017/08/09/Nyphil-Ideal-Point.html</guid>
+        
+        
+        <category>music</category>
+        
+        <category>nyphil</category>
+        
+      </item>
     
       <item>
         <title>Terminal Reminders</title>
@@ -74,24 +515,21 @@
 
 &lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
 
-&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;Teh:2007&quot;&gt;Teh, Y. W., Newman, D., &amp;amp; Welling, M. A collapsed variational Bayesian inference algorithm for latent Dirichlet allocation. In &lt;i&gt;In NIPS&lt;/i&gt; (p. 2006).&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;Porter:1980&quot;&gt;Porter, M. F. (1980). An algorithm for suffix stripping. &lt;i&gt;Program&lt;/i&gt;, &lt;i&gt;14&lt;/i&gt;(3), 130–137. Retrieved from http://dblp.uni-trier.de/db/journals/program/program14.html#Porter80&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;Blei:2003&quot;&gt;Blei, D. M., Ng, A. Y., &amp;amp; Jordan, M. I. (2003). Latent Dirichlet Allocation. &lt;i&gt;J. Mach. Learn. Res.&lt;/i&gt;, &lt;i&gt;3&lt;/i&gt;, 993–1022. Retrieved from http://dl.acm.org/citation.cfm?id=944919.944937&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;Wang:2006&quot;&gt;Wang, X., &amp;amp; McCallum, A. (2006). Topics over Time: A non-Markov Continuous-time Model of Topical Trends. In &lt;i&gt;Proceedings of the 12th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining&lt;/i&gt; (pp. 424–433). New York, NY, USA: ACM. http://doi.org/10.1145/1150402.1150450&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;Blei:2009&quot;&gt;Blei, D. M., &amp;amp; Lafferty, J. D. (2009). Topic Models.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;Yano:2009&quot;&gt;Yano, T., Cohen, W. W., &amp;amp; Smith, N. A. (2009). Predicting Response to Political Blog Posts with Topic Models. In &lt;i&gt;Proceedings of Human Language Technologies: The 2009 Annual Conference of the North American Chapter of the Association for Computational Linguistics&lt;/i&gt; (pp. 477–485). Stroudsburg, PA, USA: Association for Computational Linguistics. Retrieved from http://dl.acm.org/citation.cfm?id=1620754.1620824&lt;/span&gt;&lt;/li&gt;
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;Wang:2006&quot;&gt;Wang, X., &amp;amp; McCallum, A. (2006). Topics over Time: A non-Markov Continuous-time Model of Topical Trends. In &lt;i&gt;Proceedings of the 12th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining&lt;/i&gt; (pp. 424–433). New York, NY, USA: ACM. http://doi.org/10.1145/1150402.1150450&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;Mimno:2011&quot;&gt;Mimno, D., Wallach, H. M., Talley, E., Leenders, M., &amp;amp; McCallum, A. (2011). Optimizing Semantic Coherence in Topic Models. In &lt;i&gt;Proceedings of the Conference on Empirical Methods in Natural Language Processing&lt;/i&gt; (pp. 262–272). Stroudsburg, PA, USA: Association for Computational Linguistics. Retrieved from http://dl.acm.org/citation.cfm?id=2145432.2145462&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;Yan:2013&quot;&gt;Yan, X., Guo, J., Lan, Y., &amp;amp; Cheng, X. (2013). A Biterm Topic Model for Short Texts. In &lt;i&gt;Proceedings of the 22Nd International Conference on World Wide Web&lt;/i&gt; (pp. 1445–1456). New York, NY, USA: ACM. http://doi.org/10.1145/2488388.2488514&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
 
 </description>
         <pubDate>Sun, 02 Oct 2016 00:00:00 -0400</pubDate>
-        <link>http://delimited0.github.io/music,/nyphil/2016/10/02/Nyphil-Topics.html</link>
-        <guid isPermaLink="true">http://delimited0.github.io/music,/nyphil/2016/10/02/Nyphil-Topics.html</guid>
+        <link>http://delimited0.github.io/music/nyphil/topic-models/2016/10/02/Nyphil-Topics.html</link>
+        <guid isPermaLink="true">http://delimited0.github.io/music/nyphil/topic-models/2016/10/02/Nyphil-Topics.html</guid>
         
         
-        <category>music,</category>
+        <category>music</category>
         
         <category>nyphil</category>
+        
+        <category>topic-models</category>
         
       </item>
     
@@ -105,7 +543,7 @@
 
 &lt;p&gt;&lt;img src=&quot;/assets/2016-08-14-Nyphil-Composer-Conductor/gilbert.svg&quot; alt=&quot;Gilbert&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;He has actually played Tchaikovsky with the NY Phil more than 125 times, and there are many Romantic-era stalwarts on this list. But in support of Gilbert’s reputation for forward-looking programming, &lt;a href=&quot;https://en.wikipedia.org/wiki/Christopher_Rouse_(composer)&quot;&gt;Christopher Rouse&lt;/a&gt; is his 10th most conducted composer. The composer called “Anthem” is not a person, I believe it’s just the National Anthem.&lt;/p&gt;
+&lt;p&gt;He has actually played Tchaikovsky with the NY Phil more than 125 times, and there are many Romantic-era stalwarts on this list. But in support of Gilbert’s reputation for forward-looking programming, &lt;a href=&quot;https://en.wikipedia.org/wiki/Christopher_Rouse_(composer)&quot;&gt;Christopher Rouse&lt;/a&gt; is his 10th most conducted composer. The composer called “Anthem” is not a person, I believe it’s just the US National Anthem.&lt;/p&gt;
 
 &lt;p&gt;How about the NY Phil’s most famous (arguably) conductor?&lt;/p&gt;
 
@@ -117,11 +555,11 @@
 
 </description>
         <pubDate>Sun, 14 Aug 2016 00:00:00 -0400</pubDate>
-        <link>http://delimited0.github.io/music,/nyphil/2016/08/14/Nyphil-Composer-Conductor.html</link>
-        <guid isPermaLink="true">http://delimited0.github.io/music,/nyphil/2016/08/14/Nyphil-Composer-Conductor.html</guid>
+        <link>http://delimited0.github.io/music/nyphil/2016/08/14/Nyphil-Composer-Conductor.html</link>
+        <guid isPermaLink="true">http://delimited0.github.io/music/nyphil/2016/08/14/Nyphil-Composer-Conductor.html</guid>
         
         
-        <category>music,</category>
+        <category>music</category>
         
         <category>nyphil</category>
         
@@ -453,22 +891,18 @@
 
 &lt;h1 id=&quot;references&quot;&gt;References&lt;/h1&gt;
 
-&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;Teh:2007&quot;&gt;Teh, Y. W., Newman, D., &amp;amp; Welling, M. A collapsed variational Bayesian inference algorithm for latent Dirichlet allocation. In &lt;i&gt;In NIPS&lt;/i&gt; (p. 2006).&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;Porter:1980&quot;&gt;Porter, M. F. (1980). An algorithm for suffix stripping. &lt;i&gt;Program&lt;/i&gt;, &lt;i&gt;14&lt;/i&gt;(3), 130–137. Retrieved from http://dblp.uni-trier.de/db/journals/program/program14.html#Porter80&lt;/span&gt;&lt;/li&gt;
+&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;Porter:1980&quot;&gt;Porter, M. F. (1980). An algorithm for suffix stripping. &lt;i&gt;Program&lt;/i&gt;, &lt;i&gt;14&lt;/i&gt;(3), 130–137. Retrieved from http://dblp.uni-trier.de/db/journals/program/program14.html#Porter80&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;Blei:2003&quot;&gt;Blei, D. M., Ng, A. Y., &amp;amp; Jordan, M. I. (2003). Latent Dirichlet Allocation. &lt;i&gt;J. Mach. Learn. Res.&lt;/i&gt;, &lt;i&gt;3&lt;/i&gt;, 993–1022. Retrieved from http://dl.acm.org/citation.cfm?id=944919.944937&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;Wang:2006&quot;&gt;Wang, X., &amp;amp; McCallum, A. (2006). Topics over Time: A non-Markov Continuous-time Model of Topical Trends. In &lt;i&gt;Proceedings of the 12th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining&lt;/i&gt; (pp. 424–433). New York, NY, USA: ACM. http://doi.org/10.1145/1150402.1150450&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;Blei:2009&quot;&gt;Blei, D. M., &amp;amp; Lafferty, J. D. (2009). Topic Models.&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;&lt;span id=&quot;Yano:2009&quot;&gt;Yano, T., Cohen, W. W., &amp;amp; Smith, N. A. (2009). Predicting Response to Political Blog Posts with Topic Models. In &lt;i&gt;Proceedings of Human Language Technologies: The 2009 Annual Conference of the North American Chapter of the Association for Computational Linguistics&lt;/i&gt; (pp. 477–485). Stroudsburg, PA, USA: Association for Computational Linguistics. Retrieved from http://dl.acm.org/citation.cfm?id=1620754.1620824&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;Mimno:2011&quot;&gt;Mimno, D., Wallach, H. M., Talley, E., Leenders, M., &amp;amp; McCallum, A. (2011). Optimizing Semantic Coherence in Topic Models. In &lt;i&gt;Proceedings of the Conference on Empirical Methods in Natural Language Processing&lt;/i&gt; (pp. 262–272). Stroudsburg, PA, USA: Association for Computational Linguistics. Retrieved from http://dl.acm.org/citation.cfm?id=2145432.2145462&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;Yan:2013&quot;&gt;Yan, X., Guo, J., Lan, Y., &amp;amp; Cheng, X. (2013). A Biterm Topic Model for Short Texts. In &lt;i&gt;Proceedings of the 22Nd International Conference on World Wide Web&lt;/i&gt; (pp. 1445–1456). New York, NY, USA: ACM. http://doi.org/10.1145/2488388.2488514&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
+&lt;li&gt;&lt;span id=&quot;Blei:2009&quot;&gt;Blei, D. M., &amp;amp; Lafferty, J. D. (2009). Topic Models.&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
 
 </description>
         <pubDate>Mon, 04 Jul 2016 00:00:00 -0400</pubDate>
-        <link>http://delimited0.github.io/prince,/topic-models/2016/07/04/Daily-Prince-Actm.html</link>
-        <guid isPermaLink="true">http://delimited0.github.io/prince,/topic-models/2016/07/04/Daily-Prince-Actm.html</guid>
+        <link>http://delimited0.github.io/prince/topic-models/2016/07/04/Daily-Prince-Actm.html</link>
+        <guid isPermaLink="true">http://delimited0.github.io/prince/topic-models/2016/07/04/Daily-Prince-Actm.html</guid>
         
         
-        <category>prince,</category>
+        <category>prince</category>
         
         <category>topic-models</category>
         

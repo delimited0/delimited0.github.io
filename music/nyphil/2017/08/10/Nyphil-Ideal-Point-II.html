@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Conductor Ideal Points, Part II</title>
+  <meta name="description" content="See part 1 here">
+
+  <!-- bootstrap stuff -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+  <!-- font awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="/css/main.css">
+
+  <link rel="canonical" href="http://delimited0.github.io/music/nyphil/2017/08/10/Nyphil-Ideal-Point-II.html">
+  <link rel="alternate" type="application/rss+xml" title="Experiments" href="http://delimited0.github.io/feed.xml">
+
+
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <a class="site-title" href="/">Experiments</a>
+
+    <nav class="site-nav">
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+
+      <div class="trigger">
+        
+        
+          
+        
+          
+          <a class="page-link" href="/css/main.css"></a>
+          
+        
+          
+          <a class="page-link" href="/feed.xml"></a>
+          
+        
+          
+          <a class="page-link" href="/about/">About</a>
+          
+        
+          
+          <a class="page-link" href="/notes/">Notes</a>
+          
+        
+          
+          <a class="page-link" href="/">Home</a>
+          
+        
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Conductor Ideal Points, Part II</h1>
+    <p class="post-meta"><time datetime="2017-08-10T00:00:00-04:00" itemprop="datePublished">Aug 10, 2017</time></p>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <p>See part 1 <a href="/music/nyphil/2017/08/09/Nyphil-Ideal-Point.html">here</a></p>
+
+<h1 id="piece-parameters">Piece Parameters</h1>
+
+<p>Ordering <script type="math/tex">\alpha_j</script> by ascending value we see the most likely to be played pieces. Indeed these are workhorses performed by ochestras everywhere.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Piece</th>
+      <th style="text-align: right">Difficulty</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Wagner,  Richard: MEISTERSINGER, DIE, WWV 96</td>
+      <td style="text-align: right">-0.57</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Beethoven,  Ludwig  van: SYMPHONY NO. 5 IN C MINOR, OP.67</td>
+      <td style="text-align: right">-0.24</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Wagner,  Richard: TANNHAUSER, WWV 70</td>
+      <td style="text-align: right">-0.19</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Beethoven,  Ludwig  van: SYMPHONY NO. 7 IN A MAJOR, OP.92</td>
+      <td style="text-align: right">-0.18</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Wagner,  Richard: LOHENGRIN</td>
+      <td style="text-align: right">-0.12</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Mendelssohn,  Felix: CONCERTO, VIOLIN, E MINOR, OP.64</td>
+      <td style="text-align: right">-0.11</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Brahms,  Johannes: SYMPHONY NO. 1 IN C MINOR, OP. 68</td>
+      <td style="text-align: right">-0.03</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Brahms,  Johannes: SYMPHONY NO. 4 IN E MINOR, OP. 98</td>
+      <td style="text-align: right">-0.02</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Tchaikovsky,  Pyotr  Ilyich: SYMPHONY NO. 6, B MINOR, OP. 74 (PATHÉTIQUE)</td>
+      <td style="text-align: right">-0.02</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Beethoven,  Ludwig  van: LEONORE OVERTURE NO. 3, OP. 72B</td>
+      <td style="text-align: right">0.01</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br />
+Next we look at the first dimension of <script type="math/tex">\beta_j</script>. Looking at the pieces with lowest values, we see what I consider standard orchestral works that would show up on a subscription season program. Notice that this is independent of the age of the piece; Rihm, Stucky, and Starer were all working in the later 20th and early part of this century, and Rihm is still alive and composing.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Piece</th>
+      <th style="text-align: right">Discrimination D1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Haydn,  Franz  Joseph: OVERTURE FOR AN ENGLISH OPERA</td>
+      <td style="text-align: right">-15.62</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Milhaud,  Darius: OVERTURE PHILHARMONIQUE</td>
+      <td style="text-align: right">-15.40</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Rihm,  Wolfgang: TWO OTHER MOVEMENTS</td>
+      <td style="text-align: right">-15.07</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Cornelius,  Peter: BARBIER VON BAGDAD, DER</td>
+      <td style="text-align: right">-14.88</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Bach,  Johann  Sebastian: PARTITA NO. 3, E MAJOR, PRELUDE (ORCH) BWV 1006 (ARR. Bakaleinikoff)</td>
+      <td style="text-align: right">-13.84</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Boccherini,  Luigi: CONCERTO, VIOLIN, D MAJOR, G.486</td>
+      <td style="text-align: right">-13.45</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Stucky,  Steven: RHAPSODIES</td>
+      <td style="text-align: right">-13.38</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Starer,  Robert: CONCERTO, VIOLA, STRINGS AND PERCUSSION</td>
+      <td style="text-align: right">-13.10</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Wolf,  Hugo: VERBORGENHEIT (ORCH) (ARR. Unspecified)</td>
+      <td style="text-align: right">-13.04</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Saint-Saens [Saint-Saëns],  Camille: MARCHE HEROIQUE, OP. 34</td>
+      <td style="text-align: right">-13.00</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br />
+Looking at the pieces with highest values, we see what I consider popular works that would show up on special, pops, or outreach type concerts. There are a lot of African-American spirituals, or at least arrangements or creations by white people trying to emulate the style. This dimension is also time independent; <em>The Colorful Variations</em> was composed by a <a href="http://www.nyphilkids.org/newsstand/frontrowcenter/frontrow_news1.html">group</a> of fifth graders in 1999.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Piece</th>
+      <th style="text-align: right">Discrimination D1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Kessler,  James C.: ARMED FORCES SALUTE (ARR. Kessler)</td>
+      <td style="text-align: right">8.62</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Spencer,  Victoria: COLORFUL VARIATIONS, THE</td>
+      <td style="text-align: right">8.70</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Traditional,: HONOR! (ARR. Johnson)</td>
+      <td style="text-align: right">8.71</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Traditional,: MASSA’S IN DE COL’, COL’ GROUN’ (ARR. Johnson)</td>
+      <td style="text-align: right">8.75</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Traditional,: BLOW, GAB’L! (ARR. Johnson)</td>
+      <td style="text-align: right">8.83</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Maltsby,  Carl: BEBE JESU, O BETHLEHEM</td>
+      <td style="text-align: right">8.86</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Wolfe,  Jacques: WATER BOY (ARR. Johnson)</td>
+      <td style="text-align: right">8.87</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">McGrimsey,  Robert: SWEET LITTLE JESUS BOY (ARR. Holland)</td>
+      <td style="text-align: right">8.90</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Willis,  Wallis: SWING LOW, SWEET CHARIOT (ARR. Johnson)</td>
+      <td style="text-align: right">9.26</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Traditional,: SPIRITUAL: CHILDREN, GO WHERE I SEND THEE (ARR. Morris)</td>
+      <td style="text-align: right">9.47</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Traditional,: SOME O’ DESE DAYS (ARR. Johnson)</td>
+      <td style="text-align: right">10.42</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br />
+Based on these results my interpretation of this first dimension is as an indicator of how “art-music” or “pop” oriented a conductor is. Indeed a lot of movie and Broadway scores rank highly on this measure:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Piece</th>
+      <th style="text-align: right">Discrimination D1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Kern, Jerome: SHOW BOAT (ORCH) (ARR. Goodman)</td>
+      <td style="text-align: right">6.47</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Newman, Thomas: FINDING NEMO (ARR. Watters)</td>
+      <td style="text-align: right">6.55</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Gruber, Franz Xaver: SILENT NIGHT (ARR. Cashmore)</td>
+      <td style="text-align: right">6.90</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Rodgers, Richard: SOUND OF MUSIC: MY FAVORITE THINGS (ARR. Reifenberg)</td>
+      <td style="text-align: right">7.00</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Williams, John: HARRY POTTER: SUITE</td>
+      <td style="text-align: right">8.21</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Ordering the second dimension of $\beta_j$, we see that negative values here correspond to very conservative or older pieces. In fact Joachim Raff is rarely performed, but he was more popular in his lifetime in the nineteenth century.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Piece</th>
+      <th style="text-align: right">Discrimination D2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Raff,  Joachim: SYMPHONY NO. 5 (LENORE) E MAJOR, OP. 177</td>
+      <td style="text-align: right">-12.63</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Bristow,  George  Frederick: SYMPHONY NO. 4, E MINOR, OP.50 (ARCADIAN)</td>
+      <td style="text-align: right">-12.30</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Gruber,  Franz  Xaver: SILENT NIGHT (ARR. Damrosch)</td>
+      <td style="text-align: right">-12.17</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Sarasate,  Pablo  de: CAPRICE BASQUE, OP. 24</td>
+      <td style="text-align: right">-11.34</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Wagner,  Richard: MEISTERSINGER, DIE, WWV 96:  PREISLIED (VN, ORCH) (ARR. Wilhelmj)</td>
+      <td style="text-align: right">-11.18</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Liszt,  Franz: CHRISTUS</td>
+      <td style="text-align: right">-11.15</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Henselt,  Adolf  Von: CONCERTO, PIANO, F MINOR, OP. 16</td>
+      <td style="text-align: right">-11.11</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Kreutzer,  Conradin: APPROACH OF SPRING (FRUHLINGS-NAHEN)</td>
+      <td style="text-align: right">-10.89</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Beethoven,  Ludwig  van: DER WACHTELSCHLAG, WOO 129 (ARR. Damrosch)</td>
+      <td style="text-align: right">-10.83</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Oberthur,  Charles: DUET, VIOLIN AND HARP (UNSPECIFIED)</td>
+      <td style="text-align: right">-10.64</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br />
+The pieces with the most positive values here are more modern. Some are by contemporary composers like Zhao and Lindberg, others are musicals or movie scores. Curiously Alabieff and Reeves are from the nineteenth century. For whatever reason they tend to be performed by conductors who also perform more modern work. Perhaps the Reeves piece, being a work for band, ends up being performed with the pops pieces that bands often (at least in my experience) offer. For Alabieff I’m unsure.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Piece</th>
+      <th style="text-align: right">Discrimination D2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Machado,  Roger: ENCUENTRO</td>
+      <td style="text-align: right">9.83</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Berlin,  Irving: ANNIE GET YOUR GUN</td>
+      <td style="text-align: right">9.85</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Lindberg,  Magnus: KRAFT</td>
+      <td style="text-align: right">10.14</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Zhao,  Lin: DUO FOR CELLO, SHENG, AND ORCHESTRA</td>
+      <td style="text-align: right">10.28</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Porter,  Cole: KISS ME KATE</td>
+      <td style="text-align: right">10.36</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Matthews,  Artie: PASTIME RAG NO. 4</td>
+      <td style="text-align: right">10.53</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Reeves,  David  Wallis: SECOND CONNECTICUT REGIMENT</td>
+      <td style="text-align: right">10.65</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Morricone,  Andrea and Ennio: CINEMA PARADISO: LOVE THEME (ARR. Morley)</td>
+      <td style="text-align: right">11.34</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Machado,  Roger: PETENERA</td>
+      <td style="text-align: right">11.77</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Lara,  Manuel  Manrique De: GRANADA (ARR. Hayes)</td>
+      <td style="text-align: right">11.87</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Alabieff,  Alexander: THE RUSSIAN NIGHTINGALE</td>
+      <td style="text-align: right">12.66</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<h1 id="conductor-ideal-points">Conductor Ideal Points</h1>
+
+<p>Finally I looked at the estimated ideal points of the music directors of the New York Philharmonic:</p>
+
+<p><img src="/assets/2017-08-10-Nyphil-Ideal-Point-II/nyphil-musdir-idealpt.svg" alt="ideal points" /></p>
+
+<p>We see that as time goes on conductors generally become more “modern,” as we would expect. Notice that Pierre Boulez, who became music director in 1971, was actually more modern than his successors, except for Alan Gilbert. Both Boulez and Gilbert were/are known for programming contemporary works. Jaap van Zweden looks much less modern and more “poppy” than his nearest predecessors but that’s probably from a lack of data; he hasn’t performed that much with the New York Phil. So it’s probably best not to jump to conclusions about how forward looking van Zweden is based only on this dataset.</p>
+
+<p>The conservativeness results matched my intuition, but I was suprised by the drift over time towards less poppiness and more seriousness. Perhaps earlier conductors were not as averse to performing things like folk songs and standards.</p>
+
+<h1 id="next">Next</h1>
+
+<p>Or perhaps poppiness is not exactly what that first dimension captures, and it combines what should be multiple dimensions. The model may benefit from having a higher dimensional latent space which could capture other aspects of conductor preference. I chose <script type="math/tex">d=2</script> for ease of visualization mostly. If I have the time I would like to cook up a dynamic model of conductor preference that would account for concert-by-concert decisions on what to perform, using STAN or something like that.</p>
+
+<p>It’s important to keep in mind conductors perform with many orchestras, so for most conductors beyond music directors of the New York Phil this dataset only gives a partial idea of their conducting preference. Nonetheless this is a very convenient way to analyze their latent traits.</p>
+
+
+  </div>
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Experiments</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Experiments</li>
+          <li><a href="mailto:patrickding00@gmail.com">patrickding00@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          <li>
+            <a href="https://www.linkedin.com/in/patrick-ding"><i class="fa fa-linkedin-square" aria-hidden="true"></i><span class="username">  Patrick Ding</span></a>
+
+          </li>
+
+          
+          <li>
+            <a href="https://github.com/delimited0"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">delimited0</span></a>
+
+          </li>
+          
+
+          <li>
+            <a href="http://stats.stackexchange.com/users/122761/delimited"><i class="fa fa-stack-exchange" aria-hidden="true"></i><span class="username">  delimited</span></a>
+
+          </li>
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Patrick Ding's website. A blog with my projects and information about me.
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
